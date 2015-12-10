@@ -8,14 +8,20 @@
 
 import UIKit
 
-public protocol SwiftCarouselSelectable {
-    func didSelectItem(index: Int) -> Void
+@objc public protocol SwiftCarouselDelegate {
+    optional func didSelectItem(index index: Int) -> Void
+    optional func didSelectItem(item item: UIView) -> UIView
+    optional func didDeselectItem(index index: Int) -> Void
+    optional func didDeselectItem(item item: UIView) -> UIView
+    optional func didScroll(toOffset offset: CGPoint) -> Void
+    optional func willBeginDragging(withOffset offset: CGPoint) -> Void
+    optional func didEndDragging(withOffset offset: CGPoint) -> Void
 }
 
 public enum SwiftCarouselResizeType {
     case WithoutResizing(CGFloat) // UIView frames are already specified
-    case VisibleItemsPerPage(Int) // Fill bases on visible items &
-    case FloatWithSpacing(CGFloat) // Floating = constraints
+    case VisibleItemsPerPage(Int) // Fill bases on visible items
+    case FloatWithSpacing(CGFloat) // It floats one after another, using sizeToFit()
 }
 
 public class SwiftCarousel: UIView, UIScrollViewDelegate {
@@ -26,15 +32,17 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
     private var choices: Array<UIView> = []
     private var scrollView = UIScrollView()
     private var spacing: Double = 0.0
-    var delegate: SwiftCarouselSelectable?
+    private var currentSelectedIndex: Int?
+    private var currentRealSelectedIndex: Int?
+    public var delegate: SwiftCarouselDelegate?
     
-    var resizeType: SwiftCarouselResizeType = .WithoutResizing(0) {
+    public var resizeType: SwiftCarouselResizeType = .WithoutResizing(0) {
         didSet {
             setupViews(choices)
         }
     }
     
-    var defaultSelectedIndex: Int? {
+    public var defaultSelectedIndex: Int? {
         didSet {
             if (defaultSelectedIndex < 0) {
                 defaultSelectedIndex = nil
@@ -42,7 +50,29 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         }
     }
     
-    var items: Array<UIView> {
+    public var selectedIndex: Int? {
+        let view = viewAtLocation(CGPoint(x: scrollView.contentOffset.x + CGRectGetWidth(scrollView.frame)/2, y: CGRectGetMinY(scrollView.frame)))
+        guard var index = choices.indexOf({ $0 == view }) else {
+            return nil
+        }
+        
+        while index >= originalChoicesNumber {
+            index -= originalChoicesNumber
+        }
+        
+        return index
+    }
+    
+    private var realSelectedIndex: Int? {
+        let view = viewAtLocation(CGPoint(x: scrollView.contentOffset.x + CGRectGetWidth(scrollView.frame)/2, y: CGRectGetMinY(scrollView.frame)))
+        guard let index = choices.indexOf({ $0 == view }) else {
+            return nil
+        }
+        
+        return index
+    }
+    
+    public var items: Array<UIView> {
         get {
             return Array<UIView>(choices[choices.count/3..<(choices.count/3 + originalChoicesNumber)])
         }
@@ -54,10 +84,7 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
                     if counter == 1 {
                         return choice
                     } else {
-                        let serialized = NSKeyedArchiver.archivedDataWithRootObject(choice)
-                        let newChoice: UIView! = NSKeyedUnarchiver.unarchiveObjectWithData(serialized) as! UIView
-                        
-                        return newChoice
+                        return choice.copyView()
                     }
                 }
                 self.choices.appendContentsOf(newViews)
@@ -107,10 +134,10 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         }
         
         views.forEach{ choice in
-            let additionalSpacing: CGFloat = 0.0
+            var additionalSpacing: CGFloat = 0.0
             switch resizeType {
-            case .WithoutResizing(additionalSpacing): break
-            case .FloatWithSpacing(additionalSpacing): break
+            case .WithoutResizing(let spacing): additionalSpacing = spacing
+            case .FloatWithSpacing(let spacing): additionalSpacing = spacing
             case .VisibleItemsPerPage(let visibleItems):
                 choice.frame.size.width = scrollView.frame.width/CGFloat(visibleItems)
                 if (CGRectGetHeight(choice.frame) > 0) {
@@ -119,7 +146,6 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
                 } else {
                     choice.frame.size.height = CGRectGetHeight(frame)
                 }
-            default: break
             }
             choice.frame.origin.x = x
             x += CGRectGetWidth(choice.frame) + additionalSpacing
@@ -148,26 +174,46 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         
         // Center the view
         if defaultSelectedIndex != nil {
-            selectChoice(defaultSelectedIndex!)
+            selectItem(defaultSelectedIndex!, animated: false)
         } else {
-            selectChoice(0)
+            selectItem(0, animated: false)
         }
-    }
-    
-    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        let view = viewAtLocation(CGPoint(x: scrollView.contentOffset.x + CGRectGetWidth(scrollView.frame)/2, y: CGRectGetMinY(scrollView.frame)))
-        guard var index = choices.indexOf({ $0 == view }) else {
-            return
-        }
-        
-        while index >= originalChoicesNumber {
-            index -= originalChoicesNumber
-        }
-        
-        delegate?.didSelectItem(index)
     }
     
     //MARK: - UIScrollViewDelegate
+    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        print("Did end decelerating")
+        didSelectItem()
+    }
+    
+    public func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+        print("Did end animation")
+        didSelectItem()
+    }
+    
+    private func didSelectItem() {
+        guard let selectedIndex = self.selectedIndex, realSelectedIndex = self.realSelectedIndex else {
+            return
+        }
+        
+        didDeselectItem()
+        
+        delegate?.didSelectItem?(index: selectedIndex)
+        delegate?.didSelectItem?(item: choices[realSelectedIndex])
+        
+        currentSelectedIndex = selectedIndex
+        currentRealSelectedIndex = realSelectedIndex
+    }
+    
+    private func didDeselectItem() {
+        guard let currentRealSelectedIndex = self.currentRealSelectedIndex, currentSelectedIndex = self.currentSelectedIndex where currentSelectedIndex != selectedIndex else {
+            return
+        }
+        
+        delegate?.didDeselectItem?(index: currentSelectedIndex)
+        delegate?.didDeselectItem?(item: choices[currentRealSelectedIndex])
+    }
+    
     public func scrollViewWillEndDecelerating(scrollView: UIScrollView) {
         var newOffset: CGFloat!
         if (CGRectGetMinX(scrollView.bounds) >= scrollView.contentSize.width * 2/3) {
@@ -185,6 +231,14 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         scrollView.contentOffset.x = newOffset
     }
     
+    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        delegate?.willBeginDragging?(withOffset: scrollView.contentOffset)
+    }
+    
+    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        delegate?.didEndDragging?(withOffset: scrollView.contentOffset)
+    }
+    
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         var newOffset: CGFloat!
         if (CGRectGetMinX(scrollView.bounds) >= scrollView.contentSize.width * 2/3) {
@@ -193,11 +247,12 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
             newOffset = scrollView.contentOffset.x + scrollView.contentSize.width * 1/3
         }
         
-        guard newOffset != nil else {
+        guard newOffset != nil && newOffset > 0 else {
             return
         }
         
         scrollView.contentOffset.x = newOffset
+        delegate?.didScroll?(toOffset: scrollView.contentOffset)
     }
     
     public func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -240,7 +295,7 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         return nil
     }
     
-    func nearestViewAtLocation(touchLocation: CGPoint) -> UIView {
+    private func nearestViewAtLocation(touchLocation: CGPoint) -> UIView {
         if let newView = viewAtLocation(touchLocation) {
             return newView
         }
@@ -276,13 +331,23 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         }
     }
     
-    func selectChoice(choice: Int) {
+    public func selectItem(choice: Int, animated: Bool) {
         guard choice < choices.count/3 else {
             return
         }
         let index = (choices.count/3 + choice)
         let choiceView = choices[index]
         let x = choiceView.center.x - scrollView.frame.width/2
-        scrollView.contentOffset.x = x
+        scrollView.setContentOffset(CGPoint(x: x, y: scrollView.contentOffset.y), animated: animated)
+        if !animated {
+            didSelectItem()
+        }
+    }
+}
+
+extension UIView {
+    func copyView() -> UIView {
+        let serialized = NSKeyedArchiver.archivedDataWithRootObject(self)
+        return NSKeyedUnarchiver.unarchiveObjectWithData(serialized) as! UIView
     }
 }
