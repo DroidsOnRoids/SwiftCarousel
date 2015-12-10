@@ -22,6 +22,7 @@ public enum SwiftCarouselResizeType {
     case FloatWithSpacing(CGFloat) // It floats one after another, using sizeToFit()
 }
 
+//TODO: Vertical/horizontal
 public class SwiftCarousel: UIView, UIScrollViewDelegate {
     let maxVelocity: CGFloat = 100.0
     
@@ -327,6 +328,7 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         }
     }
     
+    //TODO: Scroll to nearest, not the original
     public func selectItem(choice: Int, animated: Bool) {
         guard choice < choices.count/3 else {
             return
