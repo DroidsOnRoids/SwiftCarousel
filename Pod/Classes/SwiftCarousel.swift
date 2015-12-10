@@ -9,10 +9,8 @@
 import UIKit
 
 @objc public protocol SwiftCarouselDelegate {
-    optional func didSelectItem(index index: Int) -> Void
-    optional func didSelectItem(item item: UIView) -> UIView
-    optional func didDeselectItem(index index: Int) -> Void
-    optional func didDeselectItem(item item: UIView) -> UIView
+    optional func didSelectItem(item item: UIView, index: Int) -> UIView?
+    optional func didDeselectItem(item item: UIView, index index: Int) -> UIView?
     optional func didScroll(toOffset offset: CGPoint) -> Void
     optional func willBeginDragging(withOffset offset: CGPoint) -> Void
     optional func didEndDragging(withOffset offset: CGPoint) -> Void
@@ -198,8 +196,7 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         
         didDeselectItem()
         
-        delegate?.didSelectItem?(index: selectedIndex)
-        delegate?.didSelectItem?(item: choices[realSelectedIndex])
+        delegate?.didSelectItem?(item: choices[realSelectedIndex], index: selectedIndex)
         
         currentSelectedIndex = selectedIndex
         currentRealSelectedIndex = realSelectedIndex
@@ -210,8 +207,7 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
             return
         }
         
-        delegate?.didDeselectItem?(index: currentSelectedIndex)
-        delegate?.didDeselectItem?(item: choices[currentRealSelectedIndex])
+        delegate?.didDeselectItem?(item: choices[currentRealSelectedIndex], index: currentSelectedIndex)
     }
     
     public func scrollViewWillEndDecelerating(scrollView: UIScrollView) {
