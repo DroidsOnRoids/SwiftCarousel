@@ -10,7 +10,7 @@ import UIKit
 
 @objc public protocol SwiftCarouselDelegate {
     optional func didSelectItem(item item: UIView, index: Int) -> UIView?
-    optional func didDeselectItem(item item: UIView, index index: Int) -> UIView?
+    optional func didDeselectItem(item item: UIView, index: Int) -> UIView?
     optional func didScroll(toOffset offset: CGPoint) -> Void
     optional func willBeginDragging(withOffset offset: CGPoint) -> Void
     optional func didEndDragging(withOffset offset: CGPoint) -> Void
