@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 
 <p align="center">
-<img src="Pod/Logo_square.png" alt="Droids On Roids logo"/>
+<img src="Pod/Assets/Logo_square.png" alt="Droids On Roids logo"/>
 </p>
 
 ## Swift Carousel (Circular UIScrollView)
