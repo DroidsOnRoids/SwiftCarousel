@@ -1,14 +1,10 @@
 PODS:
-  - SwiftCarousel (0.1.0)
+  - SwiftCarousel (0.0.1)
 
 DEPENDENCIES:
-  - SwiftCarousel (from `~/Projects/Sunshinejr/SwiftCarousel/SwiftCarousel/`)
-
-EXTERNAL SOURCES:
-  SwiftCarousel:
-    :path: ~/Projects/Sunshinejr/SwiftCarousel/SwiftCarousel/
+  - SwiftCarousel
 
 SPEC CHECKSUMS:
-  SwiftCarousel: baad9725d4a6269365291727d3e9e8360a985a5e
+  SwiftCarousel: c6788f8de69d7f9a37d5503b9682e00453deb86e
 
 COCOAPODS: 0.39.0
