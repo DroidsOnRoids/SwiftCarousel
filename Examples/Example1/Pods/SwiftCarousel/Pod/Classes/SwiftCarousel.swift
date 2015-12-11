@@ -179,12 +179,10 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
     
     //MARK: - UIScrollViewDelegate
     public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        print("Did end decelerating")
         didSelectItem()
     }
     
     public func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
-        print("Did end animation")
         didSelectItem()
     }
     

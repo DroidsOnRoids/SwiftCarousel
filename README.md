@@ -8,17 +8,35 @@
 <img src="Pod/Assets/Logo_square.png" alt="Droids On Roids logo"/>
 </p>
 
-## Swift Carousel (Circular UIScrollView)
+## SwiftCarousel (Circular UIScrollView)
 
 <p align="center">
 <img src="https://i.imgur.com/IbRrmD7.gif" alt="SwiftCarousel example">
 </p>
 
+## Requirements
+
+Swift 2.0, iOS 9
+
+## Installation
+
+SwiftCarousel is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "SwiftCarousel"
+```
+
+Or just copy SwiftCarousel.swift and you can use it without cocoapods.
+
+## Examples
+You can use Examples directory for examples with creating SwiftCarousel using IB or code.
+
 ## Basic usage using Interface Builder (Storyboard/xibs)
 
-First, create UIView object and assign SwiftCarousel class to it.
-Then we need to assign some selectable UIViews. It might be UILabels, UIImageViews etc.
-The last step would be setting correct .resizeType parameter which contains:
+First, create `UIView` object and assign `SwiftCarousel` class to it.
+Then we need to assign some selectable `UIViews`. It might be `UILabels`, `UIImageViews` etc.
+The last step would be setting correct `resizeType` parameter which contains:
 
 ```swift
 public enum SwiftCarouselResizeType {
@@ -38,7 +56,7 @@ override func viewDidLoad() {
     itemsViews = items!.map { labelForString($0) }
     carousel.items = itemsViews!
     carousel.resizeType = .VisibleItemsPerPage(3)
-    carousel.defaultSelectedIndex = 3
+    carousel.defaultSelectedIndex = 3 // Select default item at start
     carousel.delegate = self
 }
 
@@ -68,16 +86,24 @@ carouselView = SwiftCarousel(frame: rect, choices: choices)
 carouselView.resizeType = .WithoutResizing(10)
 ```
 
-## Additional methods & delegate
+## Additional methods, properties & delegate
 
 You can use method `selectItem(_:animated:)` to programmatically select your item:
-
 ```swift
   carousel.selectItem(1, animated: true)
 ```
 
-Also you can implement `SwiftCarouselDelegate` protocol:
+Or you can set default selected item:
+```swift
+  carousel.defaultSelectedIndex = 3
+```
 
+You can also get current selected index:
+```swift
+  let selectedIndex = carousel.selectedIndex
+```
+
+You can implement `SwiftCarouselDelegate` protocol:
 ```swift
 @objc public protocol SwiftCarouselDelegate {
     optional func didSelectItem(item item: UIView, index: Int) -> UIView?
@@ -88,25 +114,12 @@ Also you can implement `SwiftCarouselDelegate` protocol:
 }
 ```
 
-Basic usages in Example1 project in directory Examples.
-
-## Examples
-You can use Examples directory for examples with creating SwiftCarousel using IB or code.
-
-## Requirements
-
-Swift 2.0, iOS 9
-
-## Installation
-
-SwiftCarousel is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "SwiftCarousel"
+Then you need to set the `delegate` property:
+```swift
+  carousel.delegate = self
 ```
 
-Or just copy SwiftCarousel.swift and you can use it without cocoapods.
+If you need more, basic usages in Example1 project in directory Examples.
 
 ## Author
 
