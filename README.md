@@ -7,7 +7,7 @@
 SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.
 
 <p align="center">
-<img src="https://i.imgur.com/IbRrmD7.gif" alt="SwiftCarousel example">
+<img src="https://i.imgur.com/EArXWBj.gif" alt="SwiftCarousel example">
 </p>
 
 ## Requirements
