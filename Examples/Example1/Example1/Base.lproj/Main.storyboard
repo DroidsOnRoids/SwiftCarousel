@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWL-l5-8VN" customClass="SwiftCarousel" customModule="SwiftCarousel">
+                                <rect key="frame" x="20" y="200" width="560" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="TmH-gN-rSH"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What animals do you like the most?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oV-Nb-fy9">
+                                <rect key="frame" x="165" y="171" width="270" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcS-Hs-hyc">
+                                <rect key="frame" x="300" y="416" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPP-k6-vuw">
+                                <rect key="frame" x="254" y="112" width="92" height="30"/>
+                                <state key="normal" title="Tigers! 🐯😍"/>
+                                <connections>
+                                    <action selector="selectTigers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="keC-ok-HLo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fWL-l5-8VN" secondAttribute="trailing" id="5UQ-dh-wur"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fWL-l5-8VN" secondAttribute="leading" id="Cmf-7Q-kt0"/>
+                            <constraint firstItem="fWL-l5-8VN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cst-9Z-dsm"/>
+                            <constraint firstItem="fWL-l5-8VN" firstAttribute="top" secondItem="9oV-Nb-fy9" secondAttribute="bottom" constant="8" id="FyN-E4-Aei"/>
+                            <constraint firstItem="fWL-l5-8VN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lg5-wb-LU5"/>
+                            <constraint firstItem="jcS-Hs-hyc" firstAttribute="top" secondItem="fWL-l5-8VN" secondAttribute="bottom" constant="16" id="PFh-sW-h8R"/>
+                            <constraint firstItem="jcS-Hs-hyc" firstAttribute="centerX" secondItem="fWL-l5-8VN" secondAttribute="centerX" id="RZ7-yR-yLf"/>
+                            <constraint firstItem="9oV-Nb-fy9" firstAttribute="top" secondItem="uPP-k6-vuw" secondAttribute="bottom" constant="30" id="YJq-ZM-Qr2"/>
+                            <constraint firstItem="9oV-Nb-fy9" firstAttribute="centerX" secondItem="fWL-l5-8VN" secondAttribute="centerX" id="jbZ-Sp-6Nq"/>
+                            <constraint firstItem="uPP-k6-vuw" firstAttribute="centerX" secondItem="9oV-Nb-fy9" secondAttribute="centerX" id="t4v-Ff-Bgt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="carousel" destination="fWL-l5-8VN" id="Z3W-6t-P0T"/>
+                        <outlet property="selectedTextLabel" destination="jcS-Hs-hyc" id="pCh-wN-Tm0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="429"/>
+        </scene>
+    </scenes>
+</document>

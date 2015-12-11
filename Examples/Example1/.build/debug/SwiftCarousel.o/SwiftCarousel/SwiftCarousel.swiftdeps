@@ -1,0 +1,271 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "CarouselResizeType"
+- "SwiftCarousel"
+provides-nominal:
+- "O13SwiftCarousel18CarouselResizeType"
+- "C13SwiftCarousel13SwiftCarousel"
+provides-member:
+- ["O13SwiftCarousel18CarouselResizeType", ""]
+- ["C13SwiftCarousel13SwiftCarousel", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "NSCoder"
+- !private "!="
+- "CarouselResizeType"
+- !private "backgroundColor"
+- !private "CGRectGetMinX"
+- !private ">"
+- !private "UIColor"
+- !private "addConstraints"
+- !private "<"
+- !private "NSLayoutConstraint"
+- !private "frame"
+- !private "+="
+- "Int"
+- "FloatLiteralType"
+- "Array"
+- "CGRect"
+- !private "CGRectGetMaxX"
+- "IntegerLiteralType"
+- !private "..<"
+- !private "<="
+- !private "-="
+- !private "*"
+- "Double"
+- "UIScrollViewDelegate"
+- !private "layoutIfNeeded"
+- "SwiftCarousel"
+- !private "/"
+- !private "CGSize"
+- "UIView"
+- !private "Bool"
+- !private "-"
+- !private ">="
+- "UnsafeMutablePointer"
+- !private "+"
+- !private "||"
+- !private "=="
+- !private "CGRectGetMinY"
+- "CGFloat"
+- "UIScrollView"
+- "CGPoint"
+- !private "addSubview"
+depends-member:
+- !private ["Ps9AnyObject", "CGPoint"]
+- !private ["Ps9AnyObject", "CGRectGetMaxX"]
+- !private ["Ps9AnyObject", "CGRectGetMinX"]
+- !private ["Ps9AnyObject", "CGRectGetMinY"]
+- !private ["Ps9AnyObject", "CGSize"]
+- !private ["Ps9AnyObject", "NSLayoutConstraint"]
+- !private ["Ps9AnyObject", "UIColor"]
+- ["Ps9AnyObject", "UIScrollView"]
+- !private ["Ps9AnyObject", "addConstraints"]
+- !private ["Ps9AnyObject", "addSubview"]
+- !private ["Ps9AnyObject", "backgroundColor"]
+- !private ["Ps9AnyObject", "choices"]
+- !private ["Ps9AnyObject", "defaultSelectedIndex"]
+- !private ["Ps9AnyObject", "frame"]
+- !private ["Ps9AnyObject", "layoutIfNeeded"]
+- !private ["Ps9AnyObject", "maxVelocity"]
+- !private ["Ps9AnyObject", "nearestViewAtLocation"]
+- !private ["Ps9AnyObject", "originalChoicesNumber"]
+- !private ["Ps9AnyObject", "resizeType"]
+- !private ["Ps9AnyObject", "scrollView"]
+- !private ["Ps9AnyObject", "selectChoice"]
+- !private ["Ps9AnyObject", "setupViews"]
+- !private ["Ps9AnyObject", "viewAtLocation"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps22BidirectionalIndexType", "Distance"]
+- !private ["Ps22BidirectionalIndexType", "IntegerLiteralType"]
+- !private ["Ps22BidirectionalIndexType", "_DisabledRangeIndex"]
+- !private ["Ps21BitwiseOperationsType", "Distance"]
+- !private ["Ps21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["Ps21BitwiseOperationsType", "_DisabledRangeIndex"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
+- !private ["Ps11CVarArgType", "Distance"]
+- !private ["Ps11CVarArgType", "IntegerLiteralType"]
+- !private ["Ps11CVarArgType", "_DisabledRangeIndex"]
+- ["O13SwiftCarousel18CarouselResizeType", "CGFloat"]
+- ["O13SwiftCarousel18CarouselResizeType", "FloatWithSpacing"]
+- ["O13SwiftCarousel18CarouselResizeType", "Int"]
+- ["O13SwiftCarousel18CarouselResizeType", "VisibleItemsPerPage"]
+- ["O13SwiftCarousel18CarouselResizeType", "WithoutResizing"]
+- !private ["Ps14CollectionType", "Generator"]
+- !private ["Ps14CollectionType", "forEach"]
+- !private ["Ps10Comparable", "Distance"]
+- !private ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "_DisabledRangeIndex"]
+- !private ["Ps28CustomDebugStringConvertible", "Generator"]
+- !private ["Ps28CustomDebugStringConvertible", "forEach"]
+- !private ["Ps23CustomStringConvertible", "Distance"]
+- !private ["Ps23CustomStringConvertible", "Generator"]
+- !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "forEach"]
+- !private ["Ps9Equatable", "Distance"]
+- !private ["Ps9Equatable", "Generator"]
+- !private ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "_DisabledRangeIndex"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "forEach"]
+- !private ["Ps16ForwardIndexType", "Distance"]
+- !private ["Ps16ForwardIndexType", "IntegerLiteralType"]
+- !private ["Ps16ForwardIndexType", "_DisabledRangeIndex"]
+- !private ["Ps13GeneratorType", "Element"]
+- !private ["Vs16HalfOpenInterval", "forEach"]
+- !private ["Ps8Hashable", "Distance"]
+- !private ["Ps8Hashable", "IntegerLiteralType"]
+- !private ["Ps8Hashable", "_DisabledRangeIndex"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9Indexable", "Generator"]
+- !private ["Ps9Indexable", "forEach"]
+- !private ["Si", "Distance"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "_DisabledRangeIndex"]
+- !private ["Ps21IntegerArithmeticType", "Distance"]
+- !private ["Ps21IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["Ps21IntegerArithmeticType", "_DisabledRangeIndex"]
+- !private ["Ps25IntegerLiteralConvertible", "Distance"]
+- !private ["Ps25IntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["Ps25IntegerLiteralConvertible", "_DisabledRangeIndex"]
+- !private ["Ps11IntegerType", "Distance"]
+- !private ["Ps11IntegerType", "IntegerLiteralType"]
+- !private ["Ps11IntegerType", "_DisabledRangeIndex"]
+- !private ["Ps12IntervalType", "forEach"]
+- !private ["Ps14MirrorPathType", "Distance"]
+- !private ["Ps14MirrorPathType", "IntegerLiteralType"]
+- !private ["Ps14MirrorPathType", "_DisabledRangeIndex"]
+- !private ["Sq", "deinit"]
+- !private ["Ps21RandomAccessIndexType", "Distance"]
+- !private ["Ps21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["Ps21RandomAccessIndexType", "_DisabledRangeIndex"]
+- !private ["Vs5Range", "Generator"]
+- !private ["Vs5Range", "forEach"]
+- !private ["Vs14RangeGenerator", "Element"]
+- !private ["Ps12SequenceType", "Element"]
+- !private ["Ps12SequenceType", "Generator"]
+- !private ["Ps12SequenceType", "forEach"]
+- !private ["Ps17SignedIntegerType", "Distance"]
+- !private ["Ps17SignedIntegerType", "IntegerLiteralType"]
+- !private ["Ps17SignedIntegerType", "_DisabledRangeIndex"]
+- !private ["Ps16SignedNumberType", "Distance"]
+- !private ["Ps16SignedNumberType", "IntegerLiteralType"]
+- !private ["Ps16SignedNumberType", "_DisabledRangeIndex"]
+- !private ["Ps10Strideable", "Distance"]
+- !private ["Ps10Strideable", "IntegerLiteralType"]
+- !private ["Ps10Strideable", "_DisabledRangeIndex"]
+- ["C13SwiftCarousel13SwiftCarousel", "Array"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "Bool"]
+- ["C13SwiftCarousel13SwiftCarousel", "CGFloat"]
+- ["C13SwiftCarousel13SwiftCarousel", "CGPoint"]
+- ["C13SwiftCarousel13SwiftCarousel", "CGRect"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "CGRectGetMaxX"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "CGRectGetMinX"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "CGRectGetMinY"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "CGSize"]
+- ["C13SwiftCarousel13SwiftCarousel", "CarouselResizeType"]
+- ["C13SwiftCarousel13SwiftCarousel", "Double"]
+- ["C13SwiftCarousel13SwiftCarousel", "Int"]
+- ["C13SwiftCarousel13SwiftCarousel", "NSCoder"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "NSLayoutConstraint"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "UIColor"]
+- ["C13SwiftCarousel13SwiftCarousel", "UIScrollView"]
+- ["C13SwiftCarousel13SwiftCarousel", "UIView"]
+- ["C13SwiftCarousel13SwiftCarousel", "UnsafeMutablePointer"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "addConstraints"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "addSubview"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "backgroundColor"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "choices"]
+- ["C13SwiftCarousel13SwiftCarousel", "defaultSelectedIndex"]
+- ["C13SwiftCarousel13SwiftCarousel", "deinit"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "frame"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "layoutIfNeeded"]
+- ["C13SwiftCarousel13SwiftCarousel", "layoutSubviews"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "maxVelocity"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "nearestViewAtLocation"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "originalChoicesNumber"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "refreshChoices"]
+- ["C13SwiftCarousel13SwiftCarousel", "resizeType"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "scrollView"]
+- ["C13SwiftCarousel13SwiftCarousel", "selectChoice"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "setup"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "setupViews"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "spacing"]
+- !private ["C13SwiftCarousel13SwiftCarousel", "viewAtLocation"]
+- !private ["Ps33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps33_BuiltinIntegerLiteralConvertible", "Distance"]
+- !private ["Ps33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["Ps33_BuiltinIntegerLiteralConvertible", "_DisabledRangeIndex"]
+- !private ["Ps14_Incrementable", "Distance"]
+- !private ["Ps14_Incrementable", "IntegerLiteralType"]
+- !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
+- !private ["Ps22_IntegerArithmeticType", "Distance"]
+- !private ["Ps22_IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["Ps22_IntegerArithmeticType", "_DisabledRangeIndex"]
+- !private ["Ps12_IntegerType", "Distance"]
+- !private ["Ps12_IntegerType", "IntegerLiteralType"]
+- !private ["Ps12_IntegerType", "_DisabledRangeIndex"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps22_RandomAccessAmbiguity", "Distance"]
+- !private ["Ps22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["Ps22_RandomAccessAmbiguity", "_DisabledRangeIndex"]
+- !private ["Ps12_Reflectable", "Distance"]
+- !private ["Ps12_Reflectable", "Generator"]
+- !private ["Ps12_Reflectable", "IntegerLiteralType"]
+- !private ["Ps12_Reflectable", "_DisabledRangeIndex"]
+- !private ["Ps12_Reflectable", "_getBuiltinLogicValue"]
+- !private ["Ps12_Reflectable", "forEach"]
+- !private ["Ps18_SignedIntegerType", "Distance"]
+- !private ["Ps18_SignedIntegerType", "IntegerLiteralType"]
+- !private ["Ps18_SignedIntegerType", "_DisabledRangeIndex"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps22BidirectionalIndexType"
+- !private "Ps21BitwiseOperationsType"
+- !private "Sb"
+- !private "Ps25BooleanLiteralConvertible"
+- !private "Ps11BooleanType"
+- !private "Ps11CVarArgType"
+- "O13SwiftCarousel18CarouselResizeType"
+- !private "Ps14CollectionType"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps16ForwardIndexType"
+- !private "Ps13GeneratorType"
+- !private "Vs16HalfOpenInterval"
+- !private "Ps8Hashable"
+- !private "Ps9Indexable"
+- !private "Si"
+- !private "Ps21IntegerArithmeticType"
+- !private "Ps25IntegerLiteralConvertible"
+- !private "Ps11IntegerType"
+- !private "Ps12IntervalType"
+- !private "Ps14MirrorPathType"
+- !private "Sq"
+- !private "Ps21RandomAccessIndexType"
+- !private "Vs5Range"
+- !private "Vs14RangeGenerator"
+- !private "Ps12SequenceType"
+- !private "Ps17SignedIntegerType"
+- !private "Ps16SignedNumberType"
+- !private "Ps10Strideable"
+- "C13SwiftCarousel13SwiftCarousel"
+- !private "Ps33_BuiltinBooleanLiteralConvertible"
+- !private "Ps33_BuiltinIntegerLiteralConvertible"
+- !private "Ps14_Incrementable"
+- !private "Ps22_IntegerArithmeticType"
+- !private "Ps12_IntegerType"
+- !private "Vs26_OptionalNilComparisonType"
+- !private "Ps22_RandomAccessAmbiguity"
+- !private "Ps12_Reflectable"
+- !private "Ps18_SignedIntegerType"
+depends-dynamic-lookup:
+depends-external:
+- "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-01-a.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+interface-hash: "e56b022955298353fc4f628307d87ec8"

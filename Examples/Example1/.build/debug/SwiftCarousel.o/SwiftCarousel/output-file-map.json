@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/SwiftCarousel/master.swiftdeps"
+  },
+  "/Users/lukaszmroz/Desktop/Example1/Packages/SwiftCarousel-1.0.0/Sources/SwiftCarousel.swift": {
+    "dependencies": "/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/SwiftCarousel/SwiftCarousel.d",
+    "object": "/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/Sources/SwiftCarousel.swift.o",
+    "swiftmodule": "/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/SwiftCarousel/SwiftCarousel~partial.swiftmodule",
+    "swift-dependencies": "/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/SwiftCarousel/SwiftCarousel.swiftdeps"
+  }
+}

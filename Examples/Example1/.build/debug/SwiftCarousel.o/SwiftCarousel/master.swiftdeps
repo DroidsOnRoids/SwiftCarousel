@@ -1,0 +1,5 @@
+version: "Apple Swift version 2.2-dev (LLVM 46be9ff861, Clang 4deb154edc, Swift 778f82939c)"
+options: "55c77f6966cfe4b4ad3ea1fcc0c222b5"
+build_time: [503077838, 672971000]
+inputs:
+  "/Users/lukaszmroz/Desktop/Example1/Packages/SwiftCarousel-1.0.0/Sources/SwiftCarousel.swift": !private [503077836, 0]

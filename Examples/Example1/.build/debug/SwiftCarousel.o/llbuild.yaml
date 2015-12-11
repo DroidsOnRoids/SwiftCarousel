@@ -1,0 +1,29 @@
+client:
+  name: swift-build
+
+tools: {}
+
+targets:
+  "": [<SwiftCarousel>]
+  SwiftCarousel: [<SwiftCarousel>]
+
+commands:
+  <SwiftCarousel-swiftc>:
+    tool: swift-compiler
+    executable: "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-01-a.xctoolchain/usr/bin/swiftc"
+    inputs: ["/Users/lukaszmroz/Desktop/Example1/Packages/SwiftCarousel-1.0.0/Sources/SwiftCarousel.swift"]
+    outputs: ["<SwiftCarousel-swiftc>","/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.swiftmodule","/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/Sources/SwiftCarousel.swift.o"]
+    module-name: "SwiftCarousel"
+    module-output-path: "/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.swiftmodule"
+    is-library: true
+    sources: ["/Users/lukaszmroz/Desktop/Example1/Packages/SwiftCarousel-1.0.0/Sources/SwiftCarousel.swift"]
+    objects: ["/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/Sources/SwiftCarousel.swift.o"]
+    import-paths: ["/Users/lukaszmroz/Desktop/Example1/.build/debug"]
+    temps-path: "/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/SwiftCarousel"
+    other-args: ["-j8","-Onone","-g","-target","x86_64-apple-macosx10.10","-enable-testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk","-I","/usr/local/include"]
+  <SwiftCarousel>:
+    tool: shell
+    inputs: ["<SwiftCarousel-swiftc>","/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/Sources/SwiftCarousel.swift.o"]
+    outputs: ["<SwiftCarousel>","/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.a"]
+    args: ["/bin/sh","-c","rm -f '/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.a'; ar cr '/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.a' '/Users/lukaszmroz/Desktop/Example1/.build/debug/SwiftCarousel.o/Sources/SwiftCarousel.swift.o'"]
+    description: "Linking Library:  .build/debug/SwiftCarousel.a"
