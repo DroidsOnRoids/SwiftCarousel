@@ -93,17 +93,17 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
     }
     
     //MARK: - Inits
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
-    convenience init(frame: CGRect, choices: Array<UIView>) {
+    public convenience init(frame: CGRect, choices: Array<UIView>) {
         self.init(frame: frame)
         setup()
         items = choices
@@ -161,12 +161,10 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         
         var width: CGFloat = 0.0
         switch resizeType {
-        case .FloatWithSpacing(_):
+        case .FloatWithSpacing(_), .WithoutResizing(_):
             width = CGRectGetMaxX(choices.last!.frame)
         case .VisibleItemsPerPage(_):
             width = choices.reduce(0.0) { $0 + $1.frame.width}
-        default:
-            break
         }
         
         scrollView.contentSize = CGSize(width: width, height: frame.height)

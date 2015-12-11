@@ -1,6 +1,0 @@
-framework module SwiftCarousel {
-  umbrella header "SwiftCarousel-umbrella.h"
-
-  export *
-  module * { export * }
-}
