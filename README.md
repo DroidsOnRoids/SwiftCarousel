@@ -1,6 +1,5 @@
 # SwiftCarousel
 
-[![CI Status](http://img.shields.io/travis/Łukasz Mróz/SwiftCarousel.svg?style=flat)](https://travis-ci.org/Łukasz Mróz/SwiftCarousel)
 [![Version](https://img.shields.io/cocoapods/v/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![License](https://img.shields.io/cocoapods/l/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
