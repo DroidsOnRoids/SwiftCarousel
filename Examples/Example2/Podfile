@@ -1,3 +1,3 @@
 use_frameworks!
 
-pod 'SwiftCarousel', :path => '~/Projects/Sunshinejr/SwiftCarousel/SwiftCarousel/'
+pod 'SwiftCarousel'

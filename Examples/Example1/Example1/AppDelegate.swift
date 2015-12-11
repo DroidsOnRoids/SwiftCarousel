@@ -3,7 +3,7 @@
 //  Example1
 //
 //  Created by Lukasz Mroz on 10.12.2015.
-//  Copyright © 2015 Lukasz Mroz. All rights reserved.
+//  Copyright © 2015 Droids on Roids. All rights reserved.
 //
 
 import UIKit
