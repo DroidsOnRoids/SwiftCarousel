@@ -4,8 +4,6 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 
-## SwiftCarousel (Circular UIScrollView)
-
 SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.
 
 <p align="center">
