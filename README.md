@@ -94,6 +94,10 @@ Basic usages in Example1 project in directory Examples.
 ## Examples
 You can use Examples directory for examples with creating SwiftCarousel using IB or code.
 
+## Requirements
+
+Swift 2.0, iOS 9
+
 ## Installation
 
 SwiftCarousel is available through [CocoaPods](http://cocoapods.org). To install
