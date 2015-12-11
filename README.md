@@ -4,11 +4,9 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 
-<p align="center">
-<img src="Pod/Assets/Logo_square.png" alt="Droids On Roids logo"/>
-</p>
-
 ## SwiftCarousel (Circular UIScrollView)
+
+SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.
 
 <p align="center">
 <img src="https://i.imgur.com/IbRrmD7.gif" alt="SwiftCarousel example">
@@ -27,7 +25,7 @@ it, simply add the following line to your Podfile:
 pod "SwiftCarousel"
 ```
 
-Or just copy SwiftCarousel.swift and you can use it without cocoapods.
+Or just copy `SwiftCarousel.swift` and you can use it without cocoapods.
 
 ## Examples
 You can use Examples directory for examples with creating SwiftCarousel using IB or code.
