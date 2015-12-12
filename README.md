@@ -7,7 +7,7 @@
 SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.
 
 <p align="center">
-<img src="https://i.imgur.com/EArXWBj.gif" alt="SwiftCarousel example">
+<img src="https://i.imgur.com/SPrBsy8.gif" alt="SwiftCarousel example">
 </p>
 
 ## Requirements
@@ -36,9 +36,20 @@ The last step would be setting correct `resizeType` parameter which contains:
 
 ```swift
 public enum SwiftCarouselResizeType {
-    case WithoutResizing(CGFloat) // You need to pass correct frame sizes as items
-    case VisibleItemsPerPage(Int) // It will try to fit the number of items you specify (including resizing views)
-    case FloatWithSpacing(CGFloat) // It will use sizeToFit() on your views to correctly place images (helpful in e.g. UILabels)
+    // WithoutResizing is adding frames as they are.
+    // Parameter = spacing between UIViews.
+    // !!You need to pass correct frame sizes as items!!
+    case WithoutResizing(CGFloat)
+
+    // VisibleItemsPerPage will try to fit the number of items you specify
+    // in the whole screen (will resize them of course).
+    // Parameter = number of items visible on screen.
+    case VisibleItemsPerPage(Int)
+
+    // FloatWithSpacing will use sizeToFit() on your views to correctly place images
+    // It is helpful for instance with UILabels (Example1 in Examples folder).
+    // Parameter = spacing between UIViews.
+    case FloatWithSpacing(CGFloat)
 }
 ```
 

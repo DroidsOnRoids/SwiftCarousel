@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 
 extension ViewController: SwiftCarouselDelegate {
     func didSelectItem(item item: UIView, index: Int) -> UIView? {
-        label.text = index < 2 ? "🐶 number \(index+1) won! Woof woof" : "🐱 number \(index - 1) won! Miaaaaaau"
+        label.text = index < 2 ? "🐶 number \(index+1) won! Woof woof 🐶" : "🐱 number \(index - 1) won! Meeeeeeow 🐱"
         
         return nil
     }
