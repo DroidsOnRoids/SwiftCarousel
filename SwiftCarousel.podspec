@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SwiftCarousel"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "Infinite carousel of options."
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
+  s.source_files = '*.swift'
   s.resource_bundles = {
     'SwiftCarousel' => ['Pod/Assets/*.png']
   }
