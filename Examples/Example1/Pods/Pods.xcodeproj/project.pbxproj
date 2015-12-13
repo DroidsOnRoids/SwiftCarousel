@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		02E45A92F77F1F2BABDD884D98616917 /* SwiftCarousel.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EFF756E29D4462BFD16F2399EBDFF483 /* SwiftCarousel.bundle */; };
 		2941A8DFB10DF178C11E706F1C80E1B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		4A4B996A71AA9028B015B5C07D4F7CC7 /* Logo_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 094D0647C2D8A4F404D303D0F9A63BAC /* Logo_square.png */; };
+		4379A15DF85F14B9379027BECC27EE2E /* SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA46CBFA84782D13340AA9C8968EC5 /* SwiftCarousel.swift */; };
+		4A4B996A71AA9028B015B5C07D4F7CC7 /* Logo_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E7BAFC0153709200E4017F731E5526A /* Logo_square.png */; };
+		514397852F5B8A97940C675F29AEF790 /* SwiftCarousel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E31867DAAE162180FC81AE79928EB325 /* SwiftCarousel-dummy.m */; };
 		5BAAFB62EEC69BF00E905422250A2EB0 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		743A42711173AC3A97CB5F51493A7635 /* SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADF3F3D2BBD0C2AB0715C6FD90E0C9B /* SwiftCarousel.swift */; };
 		8351E0E362674DA472862809D2D787DB /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
-		86BD7AC12481FC2FFB65899DF5313F7C /* SwiftCarousel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F3535F0A6F1C8CFBC7754B667F3F980A /* SwiftCarousel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86BD7AC12481FC2FFB65899DF5313F7C /* SwiftCarousel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 378DCC47EF940B1F093BD98D3702BB82 /* SwiftCarousel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAEFF47BFDF0EC10084893E3B2A8AC2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
 		D0ABC4B73B72DA62475F375ECB5BDA78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		FF2FF66E073DFFE6C2B15D5885E6B927 /* SwiftCarousel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 013E0DEBF2359A0576D6417B4DFF1605 /* SwiftCarousel-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,29 +37,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		013E0DEBF2359A0576D6417B4DFF1605 /* SwiftCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftCarousel-dummy.m"; sourceTree = "<group>"; };
-		094D0647C2D8A4F404D303D0F9A63BAC /* Logo_square.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Logo_square.png; path = Pod/Assets/Logo_square.png; sourceTree = "<group>"; };
-		0B35967DD7274BA21993D4E7667A37F2 /* SwiftCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftCarousel.modulemap; sourceTree = "<group>"; };
-		18BE7FBD11FF33B1F715E613BD7B28ED /* SwiftCarousel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftCarousel.xcconfig; sourceTree = "<group>"; };
 		2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		2FAC657FD9511F9E231A5AEFEE0DF4EB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3139907FA10797F153F3BBB2C7EF3D7A /* SwiftCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4015C7F79E2427FC6488710E3CAD0D7D /* SwiftCarousel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCarousel-prefix.pch"; sourceTree = "<group>"; };
+		378DCC47EF940B1F093BD98D3702BB82 /* SwiftCarousel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCarousel-umbrella.h"; sourceTree = "<group>"; };
+		4FE6E41438E58CB9788D17CF15C0D60F /* SwiftCarousel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftCarousel.xcconfig; sourceTree = "<group>"; };
+		5FC03455D158AF80DE01F3017251FA01 /* SwiftCarousel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCarousel-prefix.pch"; sourceTree = "<group>"; };
 		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
+		7D1F5251EFC5D0EF0576D99B65C4B4E2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D58F7752D768AE559DD912206D0C595 /* SwiftCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftCarousel.modulemap; sourceTree = "<group>"; };
 		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
 		977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		9E7BAFC0153709200E4017F731E5526A /* Logo_square.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Logo_square.png; path = Pod/Assets/Logo_square.png; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D4DA46CBFA84782D13340AA9C8968EC5 /* SwiftCarousel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftCarousel.swift; sourceTree = "<group>"; };
 		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		E31867DAAE162180FC81AE79928EB325 /* SwiftCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftCarousel-dummy.m"; sourceTree = "<group>"; };
 		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EADF3F3D2BBD0C2AB0715C6FD90E0C9B /* SwiftCarousel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftCarousel.swift; path = Pod/Classes/SwiftCarousel.swift; sourceTree = "<group>"; };
 		EFF756E29D4462BFD16F2399EBDFF483 /* SwiftCarousel.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCarousel.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3535F0A6F1C8CFBC7754B667F3F980A /* SwiftCarousel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCarousel-umbrella.h"; sourceTree = "<group>"; };
 		FB93F871214E3889BE652E34D18FC758 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111845A2B28331C57EF5364F8528079A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9E7BAFC0153709200E4017F731E5526A /* Logo_square.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		18340F12838DEE43507667CC74401EB1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,16 +114,6 @@
 				18340F12838DEE43507667CC74401EB1 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		61C244ED55528F7DDF52F178F6EBF0D9 /* SwiftCarousel */ = {
-			isa = PBXGroup;
-			children = (
-				EADF3F3D2BBD0C2AB0715C6FD90E0C9B /* SwiftCarousel.swift */,
-				F99A467DF2EB5251B61532E506AA72EE /* Resources */,
-				A57B7D3639824CF634AF1B20E7708E1F /* Support Files */,
-			);
-			path = SwiftCarousel;
 			sourceTree = "<group>";
 		};
 		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
@@ -147,20 +145,6 @@
 			);
 			sourceTree = "<group>";
 		};
-		A57B7D3639824CF634AF1B20E7708E1F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2FAC657FD9511F9E231A5AEFEE0DF4EB /* Info.plist */,
-				0B35967DD7274BA21993D4E7667A37F2 /* SwiftCarousel.modulemap */,
-				18BE7FBD11FF33B1F715E613BD7B28ED /* SwiftCarousel.xcconfig */,
-				013E0DEBF2359A0576D6417B4DFF1605 /* SwiftCarousel-dummy.m */,
-				4015C7F79E2427FC6488710E3CAD0D7D /* SwiftCarousel-prefix.pch */,
-				F3535F0A6F1C8CFBC7754B667F3F980A /* SwiftCarousel-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftCarousel";
-			sourceTree = "<group>";
-		};
 		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,17 +166,33 @@
 		BA49F95D2903E5603F0DCE9B72714D65 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				61C244ED55528F7DDF52F178F6EBF0D9 /* SwiftCarousel */,
+				DBF91D9A5DC5ECB88A91396CC3A4B81E /* SwiftCarousel */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F99A467DF2EB5251B61532E506AA72EE /* Resources */ = {
+		C26C1357C8DEDA2C5070545E7CBE8979 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				094D0647C2D8A4F404D303D0F9A63BAC /* Logo_square.png */,
+				7D1F5251EFC5D0EF0576D99B65C4B4E2 /* Info.plist */,
+				7D58F7752D768AE559DD912206D0C595 /* SwiftCarousel.modulemap */,
+				4FE6E41438E58CB9788D17CF15C0D60F /* SwiftCarousel.xcconfig */,
+				E31867DAAE162180FC81AE79928EB325 /* SwiftCarousel-dummy.m */,
+				5FC03455D158AF80DE01F3017251FA01 /* SwiftCarousel-prefix.pch */,
+				378DCC47EF940B1F093BD98D3702BB82 /* SwiftCarousel-umbrella.h */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftCarousel";
+			sourceTree = "<group>";
+		};
+		DBF91D9A5DC5ECB88A91396CC3A4B81E /* SwiftCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				D4DA46CBFA84782D13340AA9C8968EC5 /* SwiftCarousel.swift */,
+				111845A2B28331C57EF5364F8528079A /* Resources */,
+				C26C1357C8DEDA2C5070545E7CBE8979 /* Support Files */,
+			);
+			path = SwiftCarousel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +238,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8278832B068A0D17FD2ECC77B98671E /* Build configuration list for PBXNativeTarget "SwiftCarousel" */;
 			buildPhases = (
-				7ABBD3007946ACC2C5B97C81AE9C9642 /* Sources */,
+				A8755C7A8C507F762DC63CC91D4648C4 /* Sources */,
 				5E4F191C35AD75E101DA3C59DE7ABE97 /* Frameworks */,
 				57F95EE13BDF3A22C6EDB58671695E37 /* Resources */,
 				6CAA2AC6EFD2B52E71D3F43C873892FF /* Headers */,
@@ -327,12 +327,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ABBD3007946ACC2C5B97C81AE9C9642 /* Sources */ = {
+		A8755C7A8C507F762DC63CC91D4648C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF2FF66E073DFFE6C2B15D5885E6B927 /* SwiftCarousel-dummy.m in Sources */,
-				743A42711173AC3A97CB5F51493A7635 /* SwiftCarousel.swift in Sources */,
+				514397852F5B8A97940C675F29AEF790 /* SwiftCarousel-dummy.m in Sources */,
+				4379A15DF85F14B9379027BECC27EE2E /* SwiftCarousel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +393,7 @@
 		};
 		67CFFB0FFCA0CF54E4ABF621A4D8FDF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18BE7FBD11FF33B1F715E613BD7B28ED /* SwiftCarousel.xcconfig */;
+			baseConfigurationReference = 4FE6E41438E58CB9788D17CF15C0D60F /* SwiftCarousel.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -490,7 +490,7 @@
 		};
 		B100329C4C7F322D9DA716F6E41A1763 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18BE7FBD11FF33B1F715E613BD7B28ED /* SwiftCarousel.xcconfig */;
+			baseConfigurationReference = 4FE6E41438E58CB9788D17CF15C0D60F /* SwiftCarousel.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -518,7 +518,7 @@
 		};
 		CD1A34DF0B3F1B31CBEFC97417DC97E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18BE7FBD11FF33B1F715E613BD7B28ED /* SwiftCarousel.xcconfig */;
+			baseConfigurationReference = 4FE6E41438E58CB9788D17CF15C0D60F /* SwiftCarousel.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = SwiftCarousel;
@@ -530,7 +530,7 @@
 		};
 		DD052D666E60894F92D65089B17313FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18BE7FBD11FF33B1F715E613BD7B28ED /* SwiftCarousel.xcconfig */;
+			baseConfigurationReference = 4FE6E41438E58CB9788D17CF15C0D60F /* SwiftCarousel.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = SwiftCarousel;

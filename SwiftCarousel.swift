@@ -187,7 +187,7 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         
         // Center the view
         if defaultSelectedIndex != nil {
-            selectItem(defaultSelectedIndex!, animated: false)
+            selectItem(defaultSelectedIndex!, animated: true)
         } else {
             selectItem(0, animated: false)
         }

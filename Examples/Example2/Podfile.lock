@@ -1,10 +1,10 @@
 PODS:
-  - SwiftCarousel (0.1.0)
+  - SwiftCarousel (0.2.0)
 
 DEPENDENCIES:
   - SwiftCarousel
 
 SPEC CHECKSUMS:
-  SwiftCarousel: ee8f71c36e69841c3cf4d7e9b788df159263578e
+  SwiftCarousel: 26cb79f039f5b3c3843077cae35c564cd3480d1c
 
 COCOAPODS: 0.39.0

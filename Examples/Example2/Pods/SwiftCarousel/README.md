@@ -1,31 +1,55 @@
 # SwiftCarousel
 
-[![CI Status](http://img.shields.io/travis/Łukasz Mróz/SwiftCarousel.svg?style=flat)](https://travis-ci.org/Łukasz Mróz/SwiftCarousel)
 [![Version](https://img.shields.io/cocoapods/v/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![License](https://img.shields.io/cocoapods/l/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 
-<p align="center">
-<img src="Pod/Assets/Logo_square.png" alt="Droids On Roids logo"/>
-</p>
-
-## Swift Carousel (Circular UIScrollView)
+SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.
 
 <p align="center">
-<img src="https://i.imgur.com/IbRrmD7.gif" alt="SwiftCarousel example">
+<img src="https://i.imgur.com/SPrBsy8.gif" alt="SwiftCarousel example">
 </p>
+
+## Requirements
+
+Swift 2.0, iOS 9
+
+## Installation
+
+SwiftCarousel is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "SwiftCarousel"
+```
+
+Or just copy `SwiftCarousel.swift` and you can use it without cocoapods.
+
+## Examples
+You can use Examples directory for examples with creating SwiftCarousel using IB or code.
 
 ## Basic usage using Interface Builder (Storyboard/xibs)
 
-First, create UIView object and assign SwiftCarousel class to it.
-Then we need to assign some selectable UIViews. It might be UILabels, UIImageViews etc.
-The last step would be setting correct .resizeType parameter which contains:
+First, create `UIView` object and assign `SwiftCarousel` class to it.
+Then we need to assign some selectable `UIViews`. It might be `UILabels`, `UIImageViews` etc.
+The last step would be setting correct `resizeType` parameter which contains:
 
 ```swift
 public enum SwiftCarouselResizeType {
-    case WithoutResizing(CGFloat) // You need to pass correct frame sizes as items
-    case VisibleItemsPerPage(Int) // It will try to fit the number of items you specify (including resizing views)
-    case FloatWithSpacing(CGFloat) // It will use sizeToFit() on your views to correctly place images (helpful in e.g. UILabels)
+    // WithoutResizing is adding frames as they are.
+    // Parameter = spacing between UIViews.
+    // !!You need to pass correct frame sizes as items!!
+    case WithoutResizing(CGFloat)
+
+    // VisibleItemsPerPage will try to fit the number of items you specify
+    // in the whole screen (will resize them of course).
+    // Parameter = number of items visible on screen.
+    case VisibleItemsPerPage(Int)
+
+    // FloatWithSpacing will use sizeToFit() on your views to correctly place images
+    // It is helpful for instance with UILabels (Example1 in Examples folder).
+    // Parameter = spacing between UIViews.
+    case FloatWithSpacing(CGFloat)
 }
 ```
 
@@ -39,7 +63,7 @@ override func viewDidLoad() {
     itemsViews = items!.map { labelForString($0) }
     carousel.items = itemsViews!
     carousel.resizeType = .VisibleItemsPerPage(3)
-    carousel.defaultSelectedIndex = 3
+    carousel.defaultSelectedIndex = 3 // Select default item at start
     carousel.delegate = self
 }
 
@@ -69,16 +93,24 @@ carouselView = SwiftCarousel(frame: rect, choices: choices)
 carouselView.resizeType = .WithoutResizing(10)
 ```
 
-## Additional methods & delegate
+## Additional methods, properties & delegate
 
 You can use method `selectItem(_:animated:)` to programmatically select your item:
-
 ```swift
   carousel.selectItem(1, animated: true)
 ```
 
-Also you can implement `SwiftCarouselDelegate` protocol:
+Or you can set default selected item:
+```swift
+  carousel.defaultSelectedIndex = 3
+```
 
+You can also get current selected index:
+```swift
+  let selectedIndex = carousel.selectedIndex
+```
+
+You can implement `SwiftCarouselDelegate` protocol:
 ```swift
 @objc public protocol SwiftCarouselDelegate {
     optional func didSelectItem(item item: UIView, index: Int) -> UIView?
@@ -89,25 +121,12 @@ Also you can implement `SwiftCarouselDelegate` protocol:
 }
 ```
 
-Basic usages in Example1 project in directory Examples.
-
-## Examples
-You can use Examples directory for examples with creating SwiftCarousel using IB or code.
-
-## Requirements
-
-Swift 2.0, iOS 9
-
-## Installation
-
-SwiftCarousel is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "SwiftCarousel"
+Then you need to set the `delegate` property:
+```swift
+  carousel.delegate = self
 ```
 
-Or just copy SwiftCarousel.swift and you can use it without cocoapods.
+If you need more, basic usages in Example1 project in directory Examples.
 
 ## Author
 
