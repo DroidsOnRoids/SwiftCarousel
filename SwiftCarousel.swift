@@ -158,10 +158,10 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
     private func setupViews(views: Array<UIView>) {
         var x: CGFloat = 0.0
         if case .FloatWithSpacing(_) = resizeType {
-            views.forEach{ $0.sizeToFit() }
+            views.forEach { $0.sizeToFit() }
         }
         
-        views.forEach{ choice in
+        views.forEach { choice in
             var additionalSpacing: CGFloat = 0.0
             switch resizeType {
             case .WithoutResizing(let spacing): additionalSpacing = spacing
@@ -180,8 +180,8 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         }
         
         
-        scrollView.subviews.forEach{ $0.removeFromSuperview() }
-        views.forEach{ scrollView.addSubview($0) }
+        scrollView.subviews.forEach { $0.removeFromSuperview() }
+        views.forEach { scrollView.addSubview($0) }
         layoutIfNeeded()
     }
     
@@ -293,7 +293,7 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
     
     //MARK: - Helpers
     private func refreshChoices() {
-        scrollView.subviews.forEach{ $0.removeFromSuperview() }
+        scrollView.subviews.forEach { $0.removeFromSuperview() }
     }
     
     private func willChangePart(point: CGPoint) -> Bool {
