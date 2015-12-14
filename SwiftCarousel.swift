@@ -221,6 +221,7 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
             return
         }
         
+        didDeselectItem()
         delegate?.didSelectItem?(item: choices[realSelectedIndex], index: selectedIndex)
         
         currentSelectedIndex = selectedIndex
@@ -236,7 +237,6 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
     }
     
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        didDeselectItem()
         delegate?.willBeginDragging?(withOffset: scrollView.contentOffset)
     }
     
@@ -253,8 +253,8 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
         }
         
         var targetX = scrollView.contentOffset.x + CGRectGetWidth(scrollView.frame) / 2.0 + velocity
-        if (targetX > CGRectGetWidth(scrollView.contentSize) || targetX < 0.0)  {
-            targetX = CGRectGetWidth(scrollView.contentSize) / 3.0  + velocity
+        if (targetX > scrollView.contentSize.width || targetX < 0.0) {
+            targetX = scrollView.contentSize.width / 3.0 + velocity
         }
         
         let choiceView = nearestViewAtLocation(CGPoint(x: targetX, y: CGRectGetMinY(scrollView.frame)))
@@ -272,10 +272,10 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
             
             if !shouldScroll {
                 var newOffsetX: CGFloat!
-                if (newOffset.x >= CGRectGetWidth(scrollView.contentSize) * 2.0 / 3.0) {
-                    newOffsetX = newOffset.x - CGRectGetWidth(scrollView.contentSize) / 3.0
-                } else if (CGRectGetMaxX(scrollView.bounds) <= CGRectGetWidth(scrollView.contentSize) / 3.0) { // First part
-                    newOffsetX = newOffset.x + CGRectGetWidth(scrollView.contentSize) * 3.0
+                if (newOffset.x >= scrollView.contentSize.width * 2.0 / 3.0) {
+                    newOffsetX = newOffset.x - scrollView.contentSize.width / 3.0
+                } else if (CGRectGetMaxX(scrollView.bounds) <= scrollView.contentSize.width / 3.0) { // First part
+                    newOffsetX = newOffset.x + scrollView.contentSize.width * 3.0
                 }
                 guard newOffsetX != nil && newOffsetX > 0 else {
                     return
@@ -297,8 +297,8 @@ public class SwiftCarousel: UIView, UIScrollViewDelegate {
     }
     
     private func willChangePart(point: CGPoint) -> Bool {
-        if (point.x >= CGRectGetWidth(scrollView.contentSize) * 2.0 / 3.0 ||
-            point.x <= CGRectGetWidth(scrollView.contentSize) / 3.0) {
+        if (point.x >= scrollView.contentSize.width * 2.0 / 3.0 ||
+            point.x <= scrollView.contentSize.width / 3.0) {
                 return true
         }
         
