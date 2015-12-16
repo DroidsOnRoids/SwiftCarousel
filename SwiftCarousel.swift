@@ -60,6 +60,7 @@ public class SwiftCarousel: UIView {
     private var currentSelectedIndex: Int?
     private var currentRealSelectedIndex: Int?
     public var delegate: SwiftCarouselDelegate?
+    public var selectByTapEnabled = true
     
     public var resizeType: SwiftCarouselResizeType = .WithoutResizing(0) {
         didSet {
@@ -240,9 +241,11 @@ public class SwiftCarousel: UIView {
     
     //MARK: - Gestures
     public func viewTapped(gestureRecognizer: UIGestureRecognizer) {
-        let touchPoint = gestureRecognizer.locationInView(scrollView)
-        if let view = viewAtLocation(touchPoint), index = choices.indexOf(view) {
-            selectItem(index, animated: true, force: true)
+        if selectByTapEnabled {
+            let touchPoint = gestureRecognizer.locationInView(scrollView)
+            if let view = viewAtLocation(touchPoint), index = choices.indexOf(view) {
+                selectItem(index, animated: true, force: true)
+            }
         }
     }
     
