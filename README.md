@@ -105,6 +105,11 @@ Or you can set default selected item:
   carousel.defaultSelectedIndex = 3
 ```
 
+You can disable selecting item by tapping it (its enabled by default):
+```swift
+  carousel.selectByTapEnabled = false
+```
+
 You can also get current selected index:
 ```swift
   let selectedIndex = carousel.selectedIndex
