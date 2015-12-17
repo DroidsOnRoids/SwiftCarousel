@@ -13,8 +13,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var carousel: SwiftCarousel!
     @IBOutlet weak var selectedTextLabel: UILabel!
-    var items: Array<String>?
-    var itemsViews: Array<UILabel>?
+    var items: [String]?
+    var itemsViews: [UILabel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +30,9 @@ class ViewController: UIViewController {
     func labelForString(string: String) -> UILabel {
         let text = UILabel()
         text.text = string
-        text.textColor = UIColor.blackColor()
-        text.textAlignment = NSTextAlignment.Center
-        text.font = UIFont.systemFontOfSize(24)
+        text.textColor = .blackColor()
+        text.textAlignment = .Center
+        text.font = .systemFontOfSize(24.0)
         text.numberOfLines = 0
         
         return text
@@ -64,7 +64,7 @@ extension ViewController: SwiftCarouselDelegate {
     
     func didDeselectItem(item item: UIView, index: Int) -> UIView? {
         if let animal = item as? UILabel {
-            animal.textColor = UIColor.blackColor()
+            animal.textColor = .blackColor()
             
             return animal
         }
