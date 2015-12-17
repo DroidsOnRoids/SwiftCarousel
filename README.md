@@ -97,22 +97,22 @@ carouselView.resizeType = .WithoutResizing(10.0)
 
 You can use method `selectItem(_:animated:)` to programmatically select your item:
 ```swift
-  carousel.selectItem(1, animated: true)
+carousel.selectItem(1, animated: true)
 ```
 
 Or you can set default selected item:
 ```swift
-  carousel.defaultSelectedIndex = 3
+carousel.defaultSelectedIndex = 3
 ```
 
 You can disable selecting item by tapping it (its enabled by default):
 ```swift
-  carousel.selectByTapEnabled = false
+carousel.selectByTapEnabled = false
 ```
 
 You can also get current selected index:
 ```swift
-  let selectedIndex = carousel.selectedIndex
+let selectedIndex = carousel.selectedIndex
 ```
 
 You can implement `SwiftCarouselDelegate` protocol:
@@ -128,7 +128,7 @@ You can implement `SwiftCarouselDelegate` protocol:
 
 Then you need to set the `delegate` property:
 ```swift
-  carousel.delegate = self
+carousel.delegate = self
 ```
 
 If you need more, basic usages in Example1 project in directory Examples.
