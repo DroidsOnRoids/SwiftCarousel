@@ -19,30 +19,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let carouselFrame = CGRect(x: view.center.x - 200, y: view.center.y - 100, width: 400, height: 200)
-        choices = (1...5).map{ choice in
+        let carouselFrame = CGRect(x: view.center.x - 200.0, y: view.center.y - 100.0, width: 400.0, height: 200.0)
+        choices = (1...5).map { choice in
             let imageView = UIImageView(image: UIImage(named: "puppy\(choice)"))
-            imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 200, height: 200))
+            imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 200.0, height: 200.0))
             
             return imageView
         }
         carouselView = SwiftCarousel(frame: carouselFrame, choices: choices)
-        carouselView.resizeType = .WithoutResizing(10)
+        carouselView.resizeType = .WithoutResizing(10.0)
         carouselView.delegate = self
         view.addSubview(carouselView)
         
-        let labelFrame = CGRect(x: view.center.x - 150, y: CGRectGetMinY(carouselFrame) - 40, width: 300, height: 20)
+        let labelFrame = CGRect(x: view.center.x - 150.0, y: CGRectGetMinY(carouselFrame) - 40.0, width: 300.0, height: 20.0)
         label = UILabel(frame: labelFrame)
         label.text = ""
-        label.textColor = UIColor.blackColor()
+        label.textColor = .blackColor()
         label.textAlignment = .Center
         view.addSubview(label)
         
-        let titleFrame = CGRect(x: view.center.x - 150, y: 60, width: 300, height: 24)
+        let titleFrame = CGRect(x: view.center.x - 150.0, y: 60.0, width: 300.0, height: 24.0)
         let title = UILabel(frame: titleFrame)
         title.text = "Puppy selector 🐶🐱"
-        title.font = UIFont.systemFontOfSize(24)
-        title.textColor = UIColor.blackColor()
+        title.font = .systemFontOfSize(24.0)
+        title.textColor = .blackColor()
         title.textAlignment = .Center
         
         view.addSubview(title)
@@ -62,6 +62,6 @@ extension ViewController: SwiftCarouselDelegate {
     }
     
     func willBeginDragging(withOffset offset: CGPoint) {
-        label.text = "Searching for some love.."
+        label.text = "Searching for some love..."
     }
 }

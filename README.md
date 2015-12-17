@@ -23,7 +23,7 @@ it, simply add the following line to your Podfile:
 pod "SwiftCarousel"
 ```
 
-Or just copy `SwiftCarousel.swift` and you can use it without cocoapods.
+Or just copy `SwiftCarousel.swift` and you can use it without CocoaPods.
 
 ## Examples
 You can use Examples directory for examples with creating SwiftCarousel using IB or code.
@@ -70,9 +70,9 @@ override func viewDidLoad() {
 func labelForString(string: String) -> UILabel {
     let text = UILabel()
     text.text = string
-    text.textColor = UIColor.blackColor()
-    text.textAlignment = NSTextAlignment.Center
-    text.font = UIFont.systemFontOfSize(24)
+    text.textColor = .blackColor()
+    text.textAlignment = .Center
+    text.font = .systemFontOfSize(24.0)
     text.numberOfLines = 0
 
     return text
@@ -82,37 +82,37 @@ func labelForString(string: String) -> UILabel {
 ## Basic usage using pure code
 
 ```swift
-let rect = CGRect(origin: CGPoint(x: view.center.x - 200, y: view.center.y - 100), size: CGSize(width: 400, height: 200))
-choices = (1...5).map{ choice in
+let rect = CGRect(origin: CGPoint(x: view.center.x - 200.0, y: view.center.y - 100.0), size: CGSize(width: 400.0, height: 200.0))
+choices = (1...5).map { choice in
     let imageView = UIImageView(image: UIImage(named: "puppy\(choice)"))
-    imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 200, height: 200))
+    imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 200.0, height: 200.0))
 
     return imageView
 }
 carouselView = SwiftCarousel(frame: rect, choices: choices)
-carouselView.resizeType = .WithoutResizing(10)
+carouselView.resizeType = .WithoutResizing(10.0)
 ```
 
 ## Additional methods, properties & delegate
 
 You can use method `selectItem(_:animated:)` to programmatically select your item:
 ```swift
-  carousel.selectItem(1, animated: true)
+carousel.selectItem(1, animated: true)
 ```
 
 Or you can set default selected item:
 ```swift
-  carousel.defaultSelectedIndex = 3
+carousel.defaultSelectedIndex = 3
 ```
 
 You can disable selecting item by tapping it (its enabled by default):
 ```swift
-  carousel.selectByTapEnabled = false
+carousel.selectByTapEnabled = false
 ```
 
 You can also get current selected index:
 ```swift
-  let selectedIndex = carousel.selectedIndex
+let selectedIndex = carousel.selectedIndex
 ```
 
 You can implement `SwiftCarouselDelegate` protocol:
@@ -128,7 +128,7 @@ You can implement `SwiftCarouselDelegate` protocol:
 
 Then you need to set the `delegate` property:
 ```swift
-  carousel.delegate = self
+carousel.delegate = self
 ```
 
 If you need more, basic usages in Example1 project in directory Examples.

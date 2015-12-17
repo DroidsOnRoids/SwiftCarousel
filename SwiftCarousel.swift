@@ -54,7 +54,7 @@ public class SwiftCarousel: UIView {
     private var shouldScrollToPosition: CGFloat = 0.0
     private var myContext = 0
     private var originalChoicesNumber: Int = 0
-    private var choices: Array<UIView> = []
+    private var choices: [UIView] = []
     private var scrollView = UIScrollView()
     private var spacing: Double = 0.0
     private var currentSelectedIndex: Int?
@@ -105,7 +105,7 @@ public class SwiftCarousel: UIView {
         set {
             originalChoicesNumber = newValue.count
             (0..<3).forEach { counter in
-                let newViews: Array<UIView> = newValue.map { choice in
+                let newViews: [UIView] = newValue.map { choice in
                     // Return original view if middle section
                     if counter == 1 {
                         return choice
@@ -170,10 +170,10 @@ public class SwiftCarousel: UIView {
             case .WithoutResizing(let spacing): additionalSpacing = spacing
             case .FloatWithSpacing(let spacing): additionalSpacing = spacing
             case .VisibleItemsPerPage(let visibleItems):
-                choice.frame.size.width = scrollView.frame.width/CGFloat(visibleItems)
-                if (CGRectGetHeight(choice.frame) > 0) {
+                choice.frame.size.width = scrollView.frame.width / CGFloat(visibleItems)
+                if (CGRectGetHeight(choice.frame) > 0.0) {
                     let aspectRatio: CGFloat = CGRectGetWidth(choice.frame)/CGRectGetHeight(choice.frame)
-                    choice.frame.size.height = floor(CGRectGetWidth(choice.frame) * aspectRatio) > CGRectGetHeight(frame) ? CGRectGetHeight(frame) : floor(CGRectGetWidth(choice.frame)*aspectRatio)
+                    choice.frame.size.height = floor(CGRectGetWidth(choice.frame) * aspectRatio) > CGRectGetHeight(frame) ? CGRectGetHeight(frame) : floor(CGRectGetWidth(choice.frame) * aspectRatio)
                 } else {
                     choice.frame.size.height = CGRectGetHeight(frame)
                 }
