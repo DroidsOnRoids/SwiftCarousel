@@ -1,0 +1,14 @@
+PODS:
+  - SwiftCarousel (0.3.1)
+
+DEPENDENCIES:
+  - SwiftCarousel (from `~/Projects/Sunshinejr/SwiftCarousel/SwiftCarousel/`)
+
+EXTERNAL SOURCES:
+  SwiftCarousel:
+    :path: ~/Projects/Sunshinejr/SwiftCarousel/SwiftCarousel/
+
+SPEC CHECKSUMS:
+  SwiftCarousel: 27290f4e0480c7812aa6d3d15a694e207684a9c7
+
+COCOAPODS: 0.39.0

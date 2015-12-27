@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9D8-za-giF">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Animals-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vZ6-PB-10H" customClass="SwiftCarousel" customModule="SwiftCarousel">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8EB-T8-LYO"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiD-LM-MCj" customClass="SwiftCarousel" customModule="SwiftCarousel">
+                                <rect key="frame" x="0.0" y="94" width="600" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5Hw-fs-ddc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EiD-LM-MCj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Vn-cZ-tKX"/>
+                            <constraint firstItem="vZ6-PB-10H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4RV-Ot-D9R"/>
+                            <constraint firstAttribute="trailing" secondItem="vZ6-PB-10H" secondAttribute="trailing" id="HSC-Fp-uMz"/>
+                            <constraint firstItem="vZ6-PB-10H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Qsd-v0-pOn"/>
+                            <constraint firstItem="EiD-LM-MCj" firstAttribute="top" secondItem="vZ6-PB-10H" secondAttribute="bottom" id="bYX-o8-7y9"/>
+                            <constraint firstAttribute="trailing" secondItem="EiD-LM-MCj" secondAttribute="trailing" id="eoH-pr-pJq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Animals" id="Xpw-vw-vPi"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="animalsCarousel" destination="vZ6-PB-10H" id="hTw-Pf-2Vk"/>
+                        <outlet property="animalsMoreCarousel" destination="EiD-LM-MCj" id="Sm1-rx-2ip"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="943"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b5g-n8-rT1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9D8-za-giF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d6q-xN-D3R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="pSO-1F-aEy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCT-O5-ZTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="943"/>
+        </scene>
+    </scenes>
+</document>
