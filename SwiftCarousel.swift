@@ -137,6 +137,10 @@ public class SwiftCarousel: UIView {
     }
     
     // MARK: - Setups
+    deinit {
+        scrollView.removeObserver(self, forKeyPath: "contentOffset")
+    }
+    
     private func setup() {
         scrollView = UIScrollView()
         scrollView.delegate = self
