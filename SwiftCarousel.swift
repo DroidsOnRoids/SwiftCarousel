@@ -59,7 +59,7 @@ public class SwiftCarousel: UIView {
     private var spacing: Double = 0.0
     private var currentSelectedIndex: Int?
     private var currentRealSelectedIndex: Int?
-    public var delegate: SwiftCarouselDelegate?
+    public weak var delegate: SwiftCarouselDelegate?
     public var selectByTapEnabled = true
     
     public var resizeType: SwiftCarouselResizeType = .WithoutResizing(0.0) {
@@ -137,6 +137,10 @@ public class SwiftCarousel: UIView {
     }
     
     // MARK: - Setups
+    deinit {
+        scrollView.removeObserver(self, forKeyPath: "contentOffset")
+    }
+    
     private func setup() {
         scrollView = UIScrollView()
         scrollView.delegate = self
@@ -211,7 +215,7 @@ public class SwiftCarousel: UIView {
         
         // Center the view
         if defaultSelectedIndex != nil {
-            selectItem(defaultSelectedIndex!, animated: true)
+            selectItem(defaultSelectedIndex!, animated: false)
         } else {
             selectItem(0, animated: false)
         }
