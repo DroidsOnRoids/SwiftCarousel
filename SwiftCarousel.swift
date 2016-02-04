@@ -52,12 +52,6 @@ public class SwiftCarousel: UIView {
     
     /// Maximum velocity that swipe can reach.
     private var maxVelocity: CGFloat = 100.0
-    /// This variable suggest if the carousel should scroll.
-    /// It should be set to true if it is already scrolling and didn't reach shouldScrollPosition yet.
-    private var shouldScroll = false
-    /// If carousel should scroll, this is the position to scroll.
-    /// When reached, the flag above should reset to false.
-    private var shouldScrollToPosition: CGFloat = 0.0
     /// Number of items that were set at the start of init.
     private var originalChoicesNumber = 0
     /// Items that carousel shows. It is 3x more items than originalChoicesNumber.
@@ -232,6 +226,9 @@ public class SwiftCarousel: UIView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
+        guard (scrollView.frame.width > 0 &&
+            scrollView.frame.height > 0)  else { return }
+        
         var width: CGFloat = 0.0
         switch resizeType {
         case .FloatWithSpacing(_), .WithoutResizing(_):
@@ -251,37 +248,29 @@ public class SwiftCarousel: UIView {
         }
     }
     
-    override public func observeValueForKeyPath(keyPath: String?,
-        ofObject object: AnyObject?,
-        change: [String : AnyObject]?,
-        context: UnsafeMutablePointer<Void>) {
-            if let _ = change?[NSKeyValueChangeNewKey] where keyPath == "contentOffset" {
-                let newOffset = scrollView.contentOffset
-                if shouldScroll {
-                    if case (shouldScrollToPosition - 10..<shouldScrollToPosition + 10) = newOffset.x {
-                        shouldScroll = false
-                    }
-                }
-                
-                if !shouldScroll {
-                    var newOffsetX: CGFloat!
-                    
-                    if (newOffset.x >= scrollView.contentSize.width * 2.0 / 3.0) {
-                        newOffsetX = newOffset.x - scrollView.contentSize.width / 3.0
-                    } else if (CGRectGetMaxX(scrollView.bounds) <= scrollView.contentSize.width / 3.0) { // First part
-                        newOffsetX = newOffset.x + scrollView.contentSize.width * 3.0
-                    }
-                    
-                    guard newOffsetX != nil && newOffsetX > 0 else { return }
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.shouldScroll = true
-                        self.shouldScrollToPosition = newOffsetX
-                        self.scrollView.contentOffset.x = newOffsetX
-                        self.delegate?.didScroll?(toOffset: self.scrollView.contentOffset)
-                    })
-                }
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if let _ = change?[NSKeyValueChangeNewKey] where keyPath == "contentOffset" {
+            // with autolayout this seems to be quite usual, we want to wait
+            // until we have some size we can actualy work with
+            guard (scrollView.frame.width > 0 &&
+                scrollView.frame.height > 0)  else { return }
+            
+            let newOffset = scrollView.contentOffset
+            let segmentWidth = scrollView.contentSize.width / 3
+            var newOffsetX: CGFloat!
+            if (newOffset.x >= segmentWidth * 2.0) { // in the 3rd part
+                newOffsetX = newOffset.x - segmentWidth // move back one segment
+            } else if (newOffset.x + scrollView.bounds.width) <= segmentWidth { // First part
+                newOffsetX = newOffset.x + segmentWidth // move forward one segment
             }
+            // We are in middle segment still so no need to scroll elsewhere
+            guard newOffsetX != nil && newOffsetX > 0 else {
+                return
+            }
+            
+            self.scrollView.contentOffset.x = newOffsetX
+            self.delegate?.didScroll?(toOffset: self.scrollView.contentOffset)
+        }
     }
     
     // MARK: - Gestures
@@ -420,20 +409,14 @@ public class SwiftCarousel: UIView {
      - parameter force:    Force should be set to true if choice index is out of items bounds.
      */
     private func selectItem(choice: Int, animated: Bool, force: Bool) {
+        var index = choice
         if !force {
-            guard choice < choices.count / 3 else { return }
-        }
-        
-        var min: Int = originalChoicesNumber
-        var index: Int = choice
-        
-        if let realSelectedIndex = self.realSelectedIndex where !force {
-            for choiceIndex in choice.stride(to: choices.count, by: originalChoicesNumber) {
-                if abs(realSelectedIndex - choiceIndex) < min {
-                    index = choiceIndex
-                    min = abs(realSelectedIndex - choiceIndex)
-                }
+            // allow scroll only in the range of original items
+            guard choice < choices.count / 3 else {
+                return
             }
+            // move to same item in middle segment
+            index = index + originalChoicesNumber
         }
         
         let choiceView = choices[index]
