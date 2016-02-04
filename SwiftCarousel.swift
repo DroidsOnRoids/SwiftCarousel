@@ -69,7 +69,7 @@ public class SwiftCarousel: UIView {
     /// Current selected index (between 0 and originalChoicesNumber).
     private var currentRealSelectedIndex: Int?
     /// Carousel delegate that handles events like didSelect.
-    public var delegate: SwiftCarouselDelegate?
+    public weak var delegate: SwiftCarouselDelegate?
     /// Bool to set if by tap on item carousel should select it (scroll to it).
     public var selectByTapEnabled = true
     /// Resize type of the carousel chosen from SwiftCarouselResizeType.
@@ -155,6 +155,10 @@ public class SwiftCarousel: UIView {
         self.init(frame: frame)
         setup()
         items = choices
+    }
+    
+    deinit {
+        scrollView.removeObserver(self, forKeyPath: "contentOffset")
     }
     
     // MARK: - Setups
