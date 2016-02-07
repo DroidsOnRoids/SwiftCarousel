@@ -22,36 +22,11 @@
 
 import UIKit
 
-@objc public protocol SwiftCarouselDelegate {
-    optional func didSelectItem(item item: UIView, index: Int) -> UIView?
-    optional func didDeselectItem(item item: UIView, index: Int) -> UIView?
-    optional func didScroll(toOffset offset: CGPoint) -> Void
-    optional func willBeginDragging(withOffset offset: CGPoint) -> Void
-    optional func didEndDragging(withOffset offset: CGPoint) -> Void
-}
-
-public enum SwiftCarouselResizeType {
-    /// WithoutResizing is adding frames as they are.
-    /// Parameter = spacing between UIViews.
-    /// !!You need to pass correct frame sizes as items!!
-    case WithoutResizing(CGFloat)
-    
-    /// VisibleItemsPerPage will try to fit the number of items you specify
-    /// in the whole screen (will resize them of course).
-    /// Parameter = number of items visible on screen.
-    case VisibleItemsPerPage(Int)
-    
-    /// FloatWithSpacing will use sizeToFit() on your views to correctly place images
-    /// It is helpful for instance with UILabels (Example1 in Examples folder).
-    /// Parameter = spacing between UIViews.
-    case FloatWithSpacing(CGFloat)
-}
-
 public class SwiftCarousel: UIView {
     //MARK: - Properties
     
     /// Maximum velocity that swipe can reach.
-    private var maxVelocity: CGFloat = 100.0
+    internal var maxVelocity: CGFloat = 100.0
     /// Number of items that were set at the start of init.
     private var originalChoicesNumber = 0
     /// Items that carousel shows. It is 3x more items than originalChoicesNumber.
@@ -290,7 +265,7 @@ public class SwiftCarousel: UIView {
     It will deselect all items that were selected before, and send
     notification to the delegate.
     */
-    private func didSelectItem() {
+    internal func didSelectItem() {
         guard let selectedIndex = self.selectedIndex, realSelectedIndex = self.realSelectedIndex else {
             return
         }
@@ -306,7 +281,7 @@ public class SwiftCarousel: UIView {
      Function that should be called when item was deselected by Carousel.
      It will also send notification to the delegate.
      */
-    private func didDeselectItem() {
+    internal func didDeselectItem() {
         guard let currentRealSelectedIndex = self.currentRealSelectedIndex, currentSelectedIndex = self.currentSelectedIndex else {
             return
         }
@@ -354,7 +329,7 @@ public class SwiftCarousel: UIView {
      
      - returns: UIView that is the nearest to that point (or contains that point).
      */
-    private func nearestViewAtLocation(touchLocation: CGPoint) -> UIView {
+    internal func nearestViewAtLocation(touchLocation: CGPoint) -> UIView {
         if let newView = viewAtLocation(touchLocation) {
             return newView
         }
@@ -437,56 +412,5 @@ public class SwiftCarousel: UIView {
      */
     public func selectItem(choice: Int, animated: Bool) {
         selectItem(choice, animated: animated, force: false)
-    }
-}
-
-// MARK: - UIScrollViewDelegate
-extension SwiftCarousel: UIScrollViewDelegate {
-    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        didSelectItem()
-    }
-    
-    public func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
-        didSelectItem()
-    }
-    
-    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        delegate?.willBeginDragging?(withOffset: scrollView.contentOffset)
-    }
-    
-    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        delegate?.didEndDragging?(withOffset: scrollView.contentOffset)
-    }
-    
-    public func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        var velocity = velocity.x * 300.0
-        var targetX = scrollView.contentOffset.x + CGRectGetWidth(scrollView.frame) / 2.0 + velocity
-        
-        if velocity >= maxVelocity {
-            velocity = maxVelocity
-        } else if velocity <= -maxVelocity {
-            velocity = -maxVelocity
-        }
-        
-        if (targetX > scrollView.contentSize.width || targetX < 0.0) {
-            targetX = scrollView.contentSize.width / 3.0 + velocity
-        }
-        
-        let choiceView = nearestViewAtLocation(CGPoint(x: targetX, y: CGRectGetMinY(scrollView.frame)))
-        targetContentOffset.memory.x = choiceView.center.x - scrollView.frame.width / 2.0
-    }
-}
-
-// MARK: - UIView Extension
-extension UIView {
-    /**
-     Method to copy UIView using archivizing.
-     
-     - returns: Copied UIView (different memory address than current)
-     */
-    func copyView() -> UIView {
-        let serialized = NSKeyedArchiver.archivedDataWithRootObject(self)
-        
-        return NSKeyedUnarchiver.unarchiveObjectWithData(serialized) as! UIView
     }
 }

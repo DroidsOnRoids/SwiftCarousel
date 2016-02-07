@@ -25,7 +25,8 @@ it, simply add the following line to your Podfile:
 pod "SwiftCarousel"
 ```
 
-Or just copy `SwiftCarousel.swift` and you can use it without CocoaPods.
+Then run `pod install` and it should be 🔥
+Also remember to add `import SwiftCarousel` in your project.
 
 ## Examples
 You can use Examples directory for examples with creating SwiftCarousel using IB or code.
