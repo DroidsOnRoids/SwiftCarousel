@@ -1,6 +1,6 @@
 {
   "name": "SwiftCarousel",
-  "version": "0.1.0",
+  "version": "0.3.3",
   "summary": "Infinite carousel of options.",
   "description": "SwiftCarousel is a fully native Swift UIScrollView wrapper, that allows you to infinite circular scroll with UIView objects.",
   "homepage": "https://github.com/Sunshinejr/SwiftCarousel",
@@ -9,19 +9,14 @@
     "Łukasz Mróz": "lukasz.mroz@droidsonroids.pl"
   },
   "source": {
-    "git": "https://github.com/Sunshinejr/SwiftCarousel.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/DroidsOnRoids/SwiftCarousel.git",
+    "tag": "0.3.3"
   },
   "social_media_url": "https://twitter.com/thesunshinejr",
   "platforms": {
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "SwiftCarousel": [
-      "Pod/Assets/*.png"
-    ]
-  },
+  "source_files": "Source/*.swift",
   "frameworks": "UIKit"
 }
