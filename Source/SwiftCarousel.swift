@@ -215,6 +215,10 @@ public class SwiftCarousel: UIView {
         scrollView.contentSize = CGSize(width: width, height: CGRectGetHeight(frame))
         maxVelocity = scrollView.contentSize.width / 6.0
         
+        // we do not want to change the selected index in case of hiding and
+        // showing view, which also triggers layout
+        guard currentSelectedIndex == nil else {return}
+        
         // Center the view
         if defaultSelectedIndex != nil {
             selectItem(defaultSelectedIndex!, animated: true)
