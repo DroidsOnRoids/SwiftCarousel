@@ -1,3 +1,9 @@
+# Next
+
+# 0.4.1
+- Quickfix to bug that was created by 0.4, when you scrolled one on the left or right, the scroll would freak out.
+- Fix to default selecting, now it behaves correctly.
+
 # 0.4
 - 🚀Fixed bug when you spinned the carousel while it was spinning. When you did this, the carousel would mess up the destination target and wouldn’t really select the item in the middle, but slightly off.
 
