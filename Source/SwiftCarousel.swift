@@ -85,7 +85,8 @@ public class SwiftCarousel: UIView {
         
         return index
     }
-    /// Returns carousel views.
+    /// Carousel items. You can setup your carousel using this method (static items), or
+    /// you can also see `itemsFactory`, which uses closure for the setup.
     public var items: [UIView] {
         get {
             return [UIView](choices[choices.count / 3..<(choices.count / 3 + originalChoicesNumber)])
@@ -100,6 +101,30 @@ public class SwiftCarousel: UIView {
                     } else {
                         return choice.copyView()
                     }
+                }
+                self.choices.appendContentsOf(newViews)
+            }
+            setupViews(choices)
+        }
+    }
+    
+    /// Factory for carousel items. Here you specify how many items do you want in carousel
+    /// and you need to specify closure that will create that view. Remember that it should
+    /// always create new view, not give the same reference all the time.
+    /// You can always setup your carousel using `items` instead.
+    public var itemsFactory: (itemsCount: Int, factory: (index: Int) -> UIView)? {
+        didSet {
+            guard let factory = itemsFactory?.factory, count = itemsFactory?.itemsCount where count > 0 else { return }
+            
+            originalChoicesNumber = count
+            (0..<3).forEach { counter in
+                let newViews: [UIView] = 0.stride(to: count, by: 1).map { i in
+                    var view = factory(index: i)
+                    if self.choices.contains(view) {
+                        view = view.copyView()
+                    }
+                    
+                    return view
                 }
                 self.choices.appendContentsOf(newViews)
             }
