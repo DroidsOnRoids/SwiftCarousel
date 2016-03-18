@@ -7,10 +7,12 @@
 [![Twitter](https://img.shields.io/badge/twitter-@thesunshinejr-blue.svg?style=flat)](https://twitter.com/thesunshinejr)
 
 SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.
+So what is there more to that than just a circular scroll view? You can spin it like a real carousel!
 
-<p align="center">
-<img src="https://i.imgur.com/SPrBsy8.gif" alt="SwiftCarousel example">
-</p>
+<div style="width: 550px;margin: 0 auto;">
+<img src="https://media.giphy.com/media/13AYJc6zZ870re/giphy.gif" alt="SwiftCarousel example" style="float: left;">
+<img src="https://media.giphy.com/media/Mv8KJ3qxspXy0/giphy.gif" alt="SwiftCarousel example" style="float: right;">
+</div>
 
 ## Requirements
 
@@ -86,13 +88,13 @@ func labelForString(string: String) -> UILabel {
 
 ```swift
 let rect = CGRect(origin: CGPoint(x: view.center.x - 200.0, y: view.center.y - 100.0), size: CGSize(width: 400.0, height: 200.0))
-choices = (1...5).map { choice in
+images = (1...5).map { choice in
     let imageView = UIImageView(image: UIImage(named: "puppy\(choice)"))
     imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 200.0, height: 200.0))
 
     return imageView
 }
-carouselView = SwiftCarousel(frame: rect, choices: choices)
+carouselView = SwiftCarousel(frame: rect, images: images)
 carouselView.resizeType = .WithoutResizing(10.0)
 ```
 
