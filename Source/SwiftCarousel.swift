@@ -112,24 +112,22 @@ public class SwiftCarousel: UIView {
     /// and you need to specify closure that will create that view. Remember that it should
     /// always create new view, not give the same reference all the time.
     /// You can always setup your carousel using `items` instead.
-    public var itemsFactory: (itemsCount: Int, factory: (index: Int) -> UIView)? {
-        didSet {
-            guard let factory = itemsFactory?.factory, count = itemsFactory?.itemsCount where count > 0 else { return }
-            
-            originalChoicesNumber = count
-            (0..<3).forEach { counter in
-                let newViews: [UIView] = 0.stride(to: count, by: 1).map { i in
-                    var view = factory(index: i)
-                    if self.choices.contains(view) {
-                        view = view.copyView()
-                    }
-                    
-                    return view
+    public func itemsFactory(itemsCount count: Int, factory: (index: Int) -> UIView) {
+        guard count > 0 else { return }
+        
+        originalChoicesNumber = count
+        (0..<3).forEach { counter in
+            let newViews: [UIView] = 0.stride(to: count, by: 1).map { i in
+                var view = factory(index: i)
+                if self.choices.contains(view) {
+                    view = view.copyView()
                 }
-                self.choices.appendContentsOf(newViews)
+                
+                return view
             }
-            setupViews(choices)
+            self.choices.appendContentsOf(newViews)
         }
+        setupViews(choices)
     }
     
     // MARK: - Inits
