@@ -20,13 +20,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let carouselFrame = CGRect(x: view.center.x - 200.0, y: view.center.y - 100.0, width: 400.0, height: 200.0)
-        choices = (1...5).map { choice in
-            let imageView = UIImageView(image: UIImage(named: "puppy\(choice)"))
+        carouselView = SwiftCarousel(frame: carouselFrame)
+        carouselView.itemsFactory = (itemsCount: 5, factory: { choice in
+            let imageView = UIImageView(image: UIImage(named: "puppy\(choice+1)"))
             imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 200.0, height: 200.0))
             
             return imageView
-        }
-        carouselView = SwiftCarousel(frame: carouselFrame, choices: choices)
+        })
         carouselView.resizeType = .WithoutResizing(10.0)
         carouselView.delegate = self
         carouselView.defaultSelectedIndex = 2
