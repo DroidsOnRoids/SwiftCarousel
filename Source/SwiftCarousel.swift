@@ -280,6 +280,7 @@ public class SwiftCarousel: UIView {
         
         currentSelectedIndex = selectedIndex
         currentRealSelectedIndex = realSelectedIndex
+        currentVelocityX = nil
     }
     
     /**
