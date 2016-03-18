@@ -58,6 +58,9 @@ public class SwiftCarousel: UIView {
             }
         }
     }
+    /// If there is defaultSelectedIndex and was selected, the variable is true.
+    /// Otherwise it is not.
+    public var didSetDefaultIndex: Bool = false
     /// Current selected index (calculated by searching through views),
     /// It returns index between 0 and originalChoicesNumber.
     public var selectedIndex: Int? {
@@ -216,13 +219,18 @@ public class SwiftCarousel: UIView {
         scrollView.contentSize = CGSize(width: width, height: CGRectGetHeight(frame))
         maxVelocity = scrollView.contentSize.width / 6.0
         
-        // we do not want to change the selected index in case of hiding and
-        // showing view, which also triggers layout
-        guard currentSelectedIndex == nil else {return}
+        // We do not want to change the selected index in case of hiding and
+        // showing view, which also triggers layout.
+        // On the other hand this method can be triggered when the defaultSelectedIndex
+        // was set after the carousel init, so we check if the default index is != nil
+        // and that it wasn't set before.
+        guard currentSelectedIndex == nil ||
+            (didSetDefaultIndex == false && defaultSelectedIndex != nil) else { return }
         
         // Center the view
         if defaultSelectedIndex != nil {
-            selectItem(defaultSelectedIndex!, animated: true)
+            selectItem(defaultSelectedIndex!, animated: false)
+            didSetDefaultIndex = true
         } else {
             selectItem(0, animated: false)
         }
@@ -280,6 +288,7 @@ public class SwiftCarousel: UIView {
         
         currentSelectedIndex = selectedIndex
         currentRealSelectedIndex = realSelectedIndex
+        currentVelocityX = nil
     }
     
     /**

@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         carouselView = SwiftCarousel(frame: carouselFrame, choices: choices)
         carouselView.resizeType = .WithoutResizing(10.0)
         carouselView.delegate = self
+        carouselView.defaultSelectedIndex = 2
         view.addSubview(carouselView)
         
         let labelFrame = CGRect(x: view.center.x - 150.0, y: CGRectGetMinY(carouselFrame) - 40.0, width: 300.0, height: 20.0)
