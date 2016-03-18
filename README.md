@@ -6,10 +6,10 @@
 [![Platform](https://img.shields.io/cocoapods/p/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![Twitter](https://img.shields.io/badge/twitter-@thesunshinejr-blue.svg?style=flat)](https://twitter.com/thesunshinejr)
 
-SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.
+SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.<br />
 So what is there more to that than just a circular scroll view? You can spin it like a real carousel!
 
-<p align="center">
+<p style="width: 100%; text-align: center;">
 <div style="width: 550px;margin: 0 auto;">
 <img src="https://media.giphy.com/media/13AYJc6zZ870re/giphy.gif" alt="SwiftCarousel example" style="float: left;">
 <img src="https://media.giphy.com/media/Mv8KJ3qxspXy0/giphy.gif" alt="SwiftCarousel example" style="float: right;">
