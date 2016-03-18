@@ -99,7 +99,11 @@ public class SwiftCarousel: UIView {
                     if counter == 1 {
                         return choice
                     } else {
-                        return choice.copyView()
+                        do {
+                            return try choice.copyView()
+                        } catch {
+                            fatalError("There was a problem with copying view.")
+                        }
                     }
                 }
                 self.choices.appendContentsOf(newViews)
@@ -120,7 +124,11 @@ public class SwiftCarousel: UIView {
             let newViews: [UIView] = 0.stride(to: count, by: 1).map { i in
                 var view = factory(index: i)
                 if self.choices.contains(view) {
-                    view = view.copyView()
+                    do {
+                        view = try view.copyView()
+                    } catch {
+                        fatalError("There was a problem with copying view.")
+                    }
                 }
                 
                 return view

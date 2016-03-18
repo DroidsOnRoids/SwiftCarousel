@@ -20,15 +20,24 @@
 * THE SOFTWARE.
 */
 
-extension UIView {
+public enum ArchiveCopyingError: ErrorType {
+    case View
+}
+
+public extension UIView {
+    private func prepareConstraintsForArchiving() {
+        constraints.forEach { $0.shouldBeArchived = true }
+        subviews.forEach { $0.prepareConstraintsForArchiving() }
+    }
+    
     /**
      Method to copy UIView using archivizing.
      
      - returns: Copied UIView (different memory address than current)
      */
-    func copyView() -> UIView {
-        let serialized = NSKeyedArchiver.archivedDataWithRootObject(self)
-        
-        return NSKeyedUnarchiver.unarchiveObjectWithData(serialized) as! UIView
+    public func copyView() throws -> UIView {
+        prepareConstraintsForArchiving()
+        guard let view = NSKeyedUnarchiver.unarchiveObjectWithData(NSKeyedArchiver.archivedDataWithRootObject(self)) as? UIView else { throw ArchiveCopyingError.View }
+        return view
     }
 }
