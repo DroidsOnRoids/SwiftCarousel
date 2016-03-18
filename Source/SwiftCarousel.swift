@@ -25,6 +25,8 @@ import UIKit
 public class SwiftCarousel: UIView {
     //MARK: - Properties
     
+    /// Current target with velocity left
+    internal var currentVelocityX: CGFloat?
     /// Maximum velocity that swipe can reach.
     internal var maxVelocity: CGFloat = 100.0
     /// Number of items that were set at the start of init.
@@ -201,8 +203,7 @@ public class SwiftCarousel: UIView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        guard (scrollView.frame.width > 0 &&
-            scrollView.frame.height > 0)  else { return }
+        guard (scrollView.frame.width > 0 && scrollView.frame.height > 0)  else { return }
         
         var width: CGFloat = 0.0
         switch resizeType {

@@ -39,7 +39,19 @@ extension SwiftCarousel: UIScrollViewDelegate {
     
     public func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         var velocity = velocity.x * 300.0
-        var targetX = scrollView.contentOffset.x + CGRectGetWidth(scrollView.frame) / 2.0 + velocity
+        
+        var targetX = CGRectGetWidth(scrollView.frame) / 2.0 + velocity
+        
+        // When the target is being scrolled and we scroll again,
+        // the position we need to take as base should be the destination
+        // because velocity will stay and if we will take the current position
+        // we won't get correct item because the X distance we skipped in the 
+        // last circle wasn't included in the calculations.
+        if let oldTargetX = currentVelocityX {
+            targetX += (oldTargetX - scrollView.contentOffset.x)
+        } else {
+            targetX += scrollView.contentOffset.x
+        }
         
         if velocity >= maxVelocity {
             velocity = maxVelocity
@@ -52,6 +64,8 @@ extension SwiftCarousel: UIScrollViewDelegate {
         }
         
         let choiceView = nearestViewAtLocation(CGPoint(x: targetX, y: CGRectGetMinY(scrollView.frame)))
-        targetContentOffset.memory.x = choiceView.center.x - scrollView.frame.width / 2.0
+        let newTargetX = choiceView.center.x - scrollView.frame.width / 2.0
+        currentVelocityX = newTargetX
+        targetContentOffset.memory.x = newTargetX
     }
 }
