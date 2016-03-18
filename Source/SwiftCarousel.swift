@@ -150,10 +150,10 @@ public class SwiftCarousel: UIView {
      - parameter choices: Items to put in carousel.
      
      */
-    public convenience init(frame: CGRect, choices: [UIView]) {
+    public convenience init(frame: CGRect, items: [UIView]) {
         self.init(frame: frame)
         setup()
-        items = choices
+        self.items = items
     }
     
     deinit {
