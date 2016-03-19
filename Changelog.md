@@ -1,4 +1,8 @@
 # Next
+- Add `itemsFactory(itemsCount:factory:)` method which can be used instead of items variable to set the carousel views.
+- **Breaking change** Replace convenience init `init(frame:choices:)` to `init(frame:items:)`.
+- Change Example2 to use `itemsFactory(itemsCount:factory:)` instead of `items`.
+- Improve `UIView().copyView()` (it will copy also constraints now for view & subviews).
 
 # 0.4.1
 - Quickfix to bug that was created by 0.4, when you scrolled one on the left or right, the scroll would freak out.
