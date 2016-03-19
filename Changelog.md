@@ -1,4 +1,6 @@
 # Next
+
+# 0.5
 - Add `itemsFactory(itemsCount:factory:)` method which can be used instead of items variable to set the carousel views.
 - **Breaking change** Replace convenience init `init(frame:choices:)` to `init(frame:items:)`.
 - Change Example2 to use `itemsFactory(itemsCount:factory:)` instead of `items`.

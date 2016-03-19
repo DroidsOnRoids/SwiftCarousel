@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SwiftCarousel"
-  s.version          = "0.4.1"
+  s.version          = "0.5"
   s.summary          = "Infinite carousel of options."
   s.description      = "SwiftCarousel is a fully native Swift UIScrollView wrapper, that allows you to infinite circular scroll with UIView objects."
   s.homepage         = "https://github.com/Sunshinejr/SwiftCarousel"
