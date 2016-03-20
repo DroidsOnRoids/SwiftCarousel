@@ -11,6 +11,7 @@
 		2941A8DFB10DF178C11E706F1C80E1B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
 		3032B58F6EEFA375E909FDFEDDB57279 /* SwiftCarousel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E0D385C78FFFC1CA24DF5F024490EC /* SwiftCarousel-dummy.m */; };
 		5BAAFB62EEC69BF00E905422250A2EB0 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6331BECE1C9F2B1F000415B4 /* SwiftCarouselError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6331BECC1C9F2A29000415B4 /* SwiftCarouselError.swift */; };
 		7839106A05052BDC32AB290C1214C39C /* SwiftCarouselResizeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7231812301BE0C278A025DFC67A23482 /* SwiftCarouselResizeType.swift */; };
 		7C91E55E880EAB78AD86D18C03C100F8 /* UIView+SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3E188CA7B5DC2E2D4559DA1FF6D060 /* UIView+SwiftCarousel.swift */; };
 		8351E0E362674DA472862809D2D787DB /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
@@ -37,6 +38,7 @@
 		32A0036D3AE21642278B50D1D835F7CB /* SwiftCarousel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftCarousel.xcconfig; sourceTree = "<group>"; };
 		5405412794D8E205B875A162FF2D9EEF /* SwiftCarousel+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SwiftCarousel+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		59E235AFC387EF2B2C4A005CDBC16C58 /* SwiftCarousel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftCarousel.swift; sourceTree = "<group>"; };
+		6331BECC1C9F2A29000415B4 /* SwiftCarouselError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselError.swift; sourceTree = "<group>"; };
 		6A380FA685A5E880B928FFFBF12D0B6B /* SwiftCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3E188CA7B5DC2E2D4559DA1FF6D060 /* UIView+SwiftCarousel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+SwiftCarousel.swift"; sourceTree = "<group>"; };
 		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -176,6 +178,7 @@
 				761E14155D98BD918E44C3147A006147 /* SwiftCarouselDelegate.swift */,
 				7231812301BE0C278A025DFC67A23482 /* SwiftCarouselResizeType.swift */,
 				6D3E188CA7B5DC2E2D4559DA1FF6D060 /* UIView+SwiftCarousel.swift */,
+				6331BECC1C9F2A29000415B4 /* SwiftCarouselError.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -251,7 +254,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -289,6 +292,7 @@
 				3032B58F6EEFA375E909FDFEDDB57279 /* SwiftCarousel-dummy.m in Sources */,
 				07FCE15F34F8CC33BA3E7CC799A3D194 /* SwiftCarousel.swift in Sources */,
 				D680328BA4AF4A3F04B99C1FE821428A /* SwiftCarouselDelegate.swift in Sources */,
+				6331BECE1C9F2B1F000415B4 /* SwiftCarouselError.swift in Sources */,
 				7839106A05052BDC32AB290C1214C39C /* SwiftCarouselResizeType.swift in Sources */,
 				7C91E55E880EAB78AD86D18C03C100F8 /* UIView+SwiftCarousel.swift in Sources */,
 			);
@@ -310,6 +314,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -406,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
