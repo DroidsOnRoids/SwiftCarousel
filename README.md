@@ -140,6 +140,10 @@ carousel.delegate = self
 
 If you need more, basic usages in Example1 project in directory Examples.
 
+## Known limitations
+
+The original views are internally copied to using the `copyView` method defined in the `UIView+SwiftCarousel` extension when using the `items` property. This performs a shallow copy of the view using `NSKeyedUnarchiver` and `NSKeyedArchiver`. So, if a custom `UIView` subclass with references to external objects is used, those references might be nil when `didSelectItem` and `didDeselectItem` delegate methods are called. To avoid this situation, the `itemsFactory` method can be used instead of the `items` property to setup the carousel.
+
 ## Author
 
 Łukasz Mróz, lukasz.mroz@droidsonroids.pl
