@@ -121,8 +121,8 @@ public class SwiftCarousel: UIView {
         guard count > 0 else { return }
         
         originalChoicesNumber = count
-        (0..<3).forEach { counter in
-            let newViews: [UIView] = try! 0.stride(to: count, by: 1).map { i in
+        try (0..<3).forEach { counter in
+            let newViews: [UIView] = try 0.stride(to: count, by: 1).map { i in
                 let view = factory(index: i)
                 guard !self.choices.contains(view) else {
                     throw SwiftCarouselError.ViewAlreadyAdded
