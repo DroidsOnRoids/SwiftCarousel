@@ -87,6 +87,7 @@ public class SwiftCarousel: UIView {
     }
     /// Carousel items. You can setup your carousel using this method (static items), or
     /// you can also see `itemsFactory`, which uses closure for the setup.
+    /// Warning: original views are copied internally and are not guaranteed to be complete when the `didSelect` and `didDeselect` delegate methods are called. Use `itemsFactory` instead to avoid this limitation.
     public var items: [UIView] {
         get {
             return [UIView](choices[choices.count / 3..<(choices.count / 3 + originalChoicesNumber)])
@@ -153,7 +154,9 @@ public class SwiftCarousel: UIView {
      Initialize carousel with items & frame.
      
      - parameter frame:   Carousel frame.
-     - parameter choices: Items to put in carousel.
+     - parameter items: Items to put in carousel.
+     
+     Warning: original views in `items` are copied internally and are not guaranteed to be complete when the `didSelect` and `didDeselect` delegate methods are called. Use `itemsFactory` instead to avoid this limitation.
      
      */
     public convenience init(frame: CGRect, items: [UIView]) {
