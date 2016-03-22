@@ -116,22 +116,18 @@ public class SwiftCarousel: UIView {
     /// Factory for carousel items. Here you specify how many items do you want in carousel
     /// and you need to specify closure that will create that view. Remember that it should
     /// always create new view, not give the same reference all the time.
+    /// If the factory closure returns a reference to a view that has already been returned, a SwiftCarouselError.ViewAlreadyAdded error is thrown.
     /// You can always setup your carousel using `items` instead.
-    public func itemsFactory(itemsCount count: Int, factory: (index: Int) -> UIView) {
+    public func itemsFactory(itemsCount count: Int, factory: (index: Int) -> UIView) throws {
         guard count > 0 else { return }
         
         originalChoicesNumber = count
-        (0..<3).forEach { counter in
-            let newViews: [UIView] = 0.stride(to: count, by: 1).map { i in
-                var view = factory(index: i)
-                if self.choices.contains(view) {
-                    do {
-                        view = try view.copyView()
-                    } catch {
-                        fatalError("There was a problem with copying view.")
-                    }
+        try (0..<3).forEach { counter in
+            let newViews: [UIView] = try 0.stride(to: count, by: 1).map { i in
+                let view = factory(index: i)
+                guard !self.choices.contains(view) else {
+                    throw SwiftCarouselError.ViewAlreadyAdded
                 }
-                
                 return view
             }
             self.choices.appendContentsOf(newViews)
