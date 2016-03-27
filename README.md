@@ -88,16 +88,21 @@ func labelForString(string: String) -> UILabel {
 
 ## Basic usage using pure code
 
+Here we use `itemsFactory(itemsCount:facory:)` method. This method allows you to setup your carousel using closure rather than static array of views. Why would we want to use that? In case of quite complicated logic. E.g. if you want to have `CALayer` properties all across the carousel. 
+
 ```swift
-let rect = CGRect(origin: CGPoint(x: view.center.x - 200.0, y: view.center.y - 100.0), size: CGSize(width: 400.0, height: 200.0))
-images = (1...5).map { choice in
-    let imageView = UIImageView(image: UIImage(named: "puppy\(choice)"))
+let carouselFrame = CGRect(x: view.center.x - 200.0, y: view.center.y - 100.0, width: 400.0, height: 200.0)
+carouselView = SwiftCarousel(frame: carouselFrame)
+try! carouselView.itemsFactory(itemsCount: 5) { choice in
+    let imageView = UIImageView(image: UIImage(named: "puppy\(choice+1)"))
     imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 200.0, height: 200.0))
 
     return imageView
 }
-carouselView = SwiftCarousel(frame: rect, images: images)
 carouselView.resizeType = .WithoutResizing(10.0)
+carouselView.delegate = self
+carouselView.defaultSelectedIndex = 2
+view.addSubview(carouselView)
 ```
 
 ## Additional methods, properties & delegate
