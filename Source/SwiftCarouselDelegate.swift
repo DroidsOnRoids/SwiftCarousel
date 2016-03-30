@@ -30,10 +30,11 @@
      
      - parameter item:  Item that is selected. You can style it as you want.
      - parameter index: Index of selected item that you can use with your data source.
+     - parameter tapped: Indicate that the item has been tapped
      
      - returns: Return UIView that you customized (or not).
      */
-    optional func didSelectItem(item item: UIView, index: Int) -> UIView?
+    optional func didSelectItem(item item: UIView, index: Int, tapped: Bool) -> UIView?
     
     /**
      Delegate method that fires up when item has been deselected.
