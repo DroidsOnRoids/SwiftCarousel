@@ -22,7 +22,7 @@
 
 import UIKit
 
-public class SwiftCarousel: UIView, UIGestureRecognizerDelegate {
+public class SwiftCarousel: UIView {
     //MARK: - Properties
     
     /// Current target with velocity left
@@ -202,13 +202,7 @@ public class SwiftCarousel: UIView, UIGestureRecognizerDelegate {
         gestureRecognizer.delegate = self
         scrollView.addGestureRecognizer(gestureRecognizer)
     }
-    
-    // to autorize tap  while scrolling in the cards view
-    public func gestureRecognizer(_: UIGestureRecognizer,
-                           shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
+        
     /**
      Setup views. Function that is fired up when setting the resizing type or items array.
      
