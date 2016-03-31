@@ -447,9 +447,9 @@ public class SwiftCarousel: UIView {
         let choiceView = choices[index]
         let x = choiceView.center.x - CGRectGetWidth(scrollView.frame) / 2.0
         
-        let animationIsNotNeeded = CGPointEqualToPoint(CGPoint(x: x, y: scrollView.contentOffset.y),scrollView.contentOffset)
-        
-        scrollView.setContentOffset(CGPoint(x: x, y: scrollView.contentOffset.y), animated: animated)
+        let newPosition = CGPoint(x: x, y: scrollView.contentOffset.y)
+        let animationIsNotNeeded = CGPointEqualToPoint(newPosition,scrollView.contentOffset)
+        scrollView.setContentOffset(newPosition, animated: animated)
         
         if !animated || animationIsNotNeeded {
             didSelectItem()
