@@ -29,6 +29,8 @@ public class SwiftCarousel: UIView {
     internal var currentVelocityX: CGFloat?
     /// Maximum velocity that swipe can reach.
     internal var maxVelocity: CGFloat = 100.0
+    // Bool to know if item has been selected by Tapping
+    private var itemSelectedByTap = false
     /// Number of items that were set at the start of init.
     private var originalChoicesNumber = 0
     /// Items that carousel shows. It is 3x more items than originalChoicesNumber.
@@ -43,6 +45,7 @@ public class SwiftCarousel: UIView {
     public weak var delegate: SwiftCarouselDelegate?
     /// Bool to set if by tap on item carousel should select it (scroll to it).
     public var selectByTapEnabled = true
+
     /// Resize type of the carousel chosen from SwiftCarouselResizeType.
     public var resizeType: SwiftCarouselResizeType = .WithoutResizing(0.0) {
         didSet {
@@ -196,9 +199,10 @@ public class SwiftCarousel: UIView {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: "viewTapped:")
         gestureRecognizer.cancelsTouchesInView = false
+        gestureRecognizer.delegate = self
         scrollView.addGestureRecognizer(gestureRecognizer)
     }
-    
+        
     /**
      Setup views. Function that is fired up when setting the resizing type or items array.
      
@@ -287,6 +291,7 @@ public class SwiftCarousel: UIView {
             }
             
             self.scrollView.contentOffset.x = newOffsetX
+            
             self.delegate?.didScroll?(toOffset: self.scrollView.contentOffset)
         }
     }
@@ -296,6 +301,7 @@ public class SwiftCarousel: UIView {
         if selectByTapEnabled {
             let touchPoint = gestureRecognizer.locationInView(scrollView)
             if let view = viewAtLocation(touchPoint), index = choices.indexOf(view) {
+                itemSelectedByTap = true
                 selectItem(index, animated: true, force: true)
             }
         }
@@ -314,8 +320,8 @@ public class SwiftCarousel: UIView {
         }
         
         didDeselectItem()
-        delegate?.didSelectItem?(item: choices[realSelectedIndex], index: selectedIndex)
-        
+        delegate?.didSelectItem?(item: choices[realSelectedIndex], index: selectedIndex, tapped: itemSelectedByTap)
+        itemSelectedByTap = false
         currentSelectedIndex = selectedIndex
         currentRealSelectedIndex = realSelectedIndex
         currentVelocityX = nil
@@ -441,9 +447,11 @@ public class SwiftCarousel: UIView {
         let choiceView = choices[index]
         let x = choiceView.center.x - CGRectGetWidth(scrollView.frame) / 2.0
         
-        scrollView.setContentOffset(CGPoint(x: x, y: scrollView.contentOffset.y), animated: animated)
+        let newPosition = CGPoint(x: x, y: scrollView.contentOffset.y)
+        let animationIsNotNeeded = CGPointEqualToPoint(newPosition,scrollView.contentOffset)
+        scrollView.setContentOffset(newPosition, animated: animated)
         
-        if !animated {
+        if !animated || animationIsNotNeeded {
             didSelectItem()
         }
     }
@@ -453,6 +461,7 @@ public class SwiftCarousel: UIView {
      
      - parameter choice:   Item index to select.
      - parameter animated: Bool to tell if the selection should be animated.
+     
      */
     public func selectItem(choice: Int, animated: Bool) {
         selectItem(choice, animated: animated, force: false)
