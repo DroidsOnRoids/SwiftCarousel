@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2015 Droids on Roids LLC
  *
@@ -22,10 +21,8 @@
  */
 
 extension SwiftCarousel: UIGestureRecognizerDelegate {
-
-public func gestureRecognizer(_: UIGestureRecognizer,
-                                                        shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+    
+    public func gestureRecognizer(_: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
-        }
-
+    }
 }

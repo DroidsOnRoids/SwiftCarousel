@@ -1,4 +1,5 @@
 # Next
+- **Breaking change** `didSelectItem(item:index:)` changed to `didSelectItem(item:index:tapped:)`.
 
 # 0.5
 - Add `itemsFactory(itemsCount:factory:)` method which can be used instead of items variable to set the carousel views.
