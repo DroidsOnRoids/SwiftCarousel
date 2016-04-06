@@ -88,7 +88,7 @@ func labelForString(string: String) -> UILabel {
 
 ## Basic usage using pure code
 
-Here we use `itemsFactory(itemsCount:facory:)` method. This method allows you to setup your carousel using closure rather than static array of views. Why would we want to use that? In case of quite complicated logic. E.g. if you want to have `CALayer` properties all across the carousel. 
+Here we use `itemsFactory(itemsCount:facory:)` method. This method allows you to setup your carousel using closure rather than static array of views. Why would we want to use that? In case of quite complicated logic. E.g. if you want to have `CALayer` properties all across the carousel.
 
 ```swift
 let carouselFrame = CGRect(x: view.center.x - 200.0, y: view.center.y - 100.0, width: 400.0, height: 200.0)
@@ -130,7 +130,7 @@ let selectedIndex = carousel.selectedIndex
 You can implement `SwiftCarouselDelegate` protocol:
 ```swift
 @objc public protocol SwiftCarouselDelegate {
-    optional func didSelectItem(item item: UIView, index: Int) -> UIView?
+    optional func didSelectItem(item item: UIView, index: Int, tapped: Bool) -> UIView?
     optional func didDeselectItem(item item: UIView, index: Int) -> UIView?
     optional func didScroll(toOffset offset: CGPoint) -> Void
     optional func willBeginDragging(withOffset offset: CGPoint) -> Void
