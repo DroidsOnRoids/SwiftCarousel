@@ -1,5 +1,8 @@
 # Next
 
+# 0.6.1
+- Fix selector syntax for Swift 2.2
+
 # 0.6
 - **Breaking change** `didSelectItem(item:index:)` changed to `didSelectItem(item:index:tapped:)`.
 
