@@ -197,7 +197,7 @@ public class SwiftCarousel: UIView {
         scrollView.backgroundColor = .clearColor()
         scrollView.addObserver(self, forKeyPath: "contentOffset", options: [.New, .Old], context: nil)
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: "viewTapped:")
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         gestureRecognizer.cancelsTouchesInView = false
         gestureRecognizer.delegate = self
         scrollView.addGestureRecognizer(gestureRecognizer)
