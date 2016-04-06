@@ -1,4 +1,6 @@
 # Next
+
+# 0.6
 - **Breaking change** `didSelectItem(item:index:)` changed to `didSelectItem(item:index:tapped:)`.
 
 # 0.5
