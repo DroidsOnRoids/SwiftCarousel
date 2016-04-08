@@ -51,7 +51,7 @@ class ViewController: UIViewController {
 
 extension ViewController: SwiftCarouselDelegate {
     
-    func didSelectItem(item item: UIView, index: Int) -> UIView? {
+    func didSelectItem(item item: UIView, index: Int, tapped: Bool) -> UIView? {
         if let animal = item as? UILabel {
             animal.textColor = UIColor.redColor()
             selectedTextLabel.text = "So you like \(animal.text!), eh?"
