@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
 
-public enum SwiftCarouselItemsScroll {
+public enum SwiftCarouselScroll {
     /// For now .Default = .Freely
     case Default
     /// Set maximum number of items that user can scroll

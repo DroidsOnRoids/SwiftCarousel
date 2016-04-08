@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1433254D0722B247AB499C86F376FDA8 /* SwiftCarousel+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699B9285F147DD0A9A9D77DD5B3E3787 /* SwiftCarousel+UIGestureRecognizerDelegate.swift */; };
-		143E830C1CB7E317009E6FB2 /* SwiftCarouselItemsScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E830A1CB7E07D009E6FB2 /* SwiftCarouselItemsScroll.swift */; };
+		143E830C1CB7E317009E6FB2 /* SwiftCarouselScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143E830A1CB7E07D009E6FB2 /* SwiftCarouselScroll.swift */; };
 		150F552CC80A3F150D3C77CAF3187E0B /* SwiftCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43EF3DDE36FB06070474B3A6C18A4D /* SwiftCarousel.swift */; };
 		2941A8DFB10DF178C11E706F1C80E1B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
 		5BAAFB62EEC69BF00E905422250A2EB0 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		03D6E7D3689D080EBC4EC068459A482E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		143E830A1CB7E07D009E6FB2 /* SwiftCarouselItemsScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselItemsScroll.swift; sourceTree = "<group>"; };
+		143E830A1CB7E07D009E6FB2 /* SwiftCarouselScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftCarouselScroll.swift; sourceTree = "<group>"; };
 		1FECB5A8CAA50D707045338708137192 /* SwiftCarousel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCarousel-prefix.pch"; sourceTree = "<group>"; };
 		25C3C56F6FA5CAB261AC50EECF8B4D73 /* SwiftCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftCarousel-dummy.m"; sourceTree = "<group>"; };
 		26C8CB962181DF68BDC7147EB7635F54 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 				55ABBDEE64386456CB8BF887F0F007D1 /* SwiftCarousel+UIScrollViewDelegate.swift */,
 				4F4AAD595D04FFA8749189064AE72040 /* SwiftCarouselDelegate.swift */,
 				F260A5F95DAE428E872653884FA7B999 /* SwiftCarouselError.swift */,
-				143E830A1CB7E07D009E6FB2 /* SwiftCarouselItemsScroll.swift */,
+				143E830A1CB7E07D009E6FB2 /* SwiftCarouselScroll.swift */,
 				FE18FB3FE6454239DD146148C453C64B /* SwiftCarouselResizeType.swift */,
 				FCD2072F5287B66023CD0D2F3A7D4C99 /* UIView+SwiftCarousel.swift */,
 			);
@@ -299,7 +299,7 @@
 				BEB4F7C62DF4368D45FBE7DFA84EA137 /* SwiftCarousel-dummy.m in Sources */,
 				150F552CC80A3F150D3C77CAF3187E0B /* SwiftCarousel.swift in Sources */,
 				9A984E60C57E43CC6D49019E9CCF8DCC /* SwiftCarouselDelegate.swift in Sources */,
-				143E830C1CB7E317009E6FB2 /* SwiftCarouselItemsScroll.swift in Sources */,
+				143E830C1CB7E317009E6FB2 /* SwiftCarouselScroll.swift in Sources */,
 				EA41E74EB47284C4BEF7D78239EDD79B /* SwiftCarouselError.swift in Sources */,
 				B84D16ED6F35027A84FE625B0FF90925 /* SwiftCarouselResizeType.swift in Sources */,
 				C854DD3A67510C46D8C7A7B567FD3A3B /* UIView+SwiftCarousel.swift in Sources */,
