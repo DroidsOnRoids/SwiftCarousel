@@ -45,7 +45,10 @@ public class SwiftCarousel: UIView {
     public weak var delegate: SwiftCarouselDelegate?
     /// Bool to set if by tap on item carousel should select it (scroll to it).
     public var selectByTapEnabled = true
-
+    /// Maximum item number to move on swipe (left or right)
+    public var maxItemsPerScroll: SwiftCarouselItemsScroll = .Default
+    
+    
     /// Resize type of the carousel chosen from SwiftCarouselResizeType.
     public var resizeType: SwiftCarouselResizeType = .WithoutResizing(0.0) {
         didSet {
