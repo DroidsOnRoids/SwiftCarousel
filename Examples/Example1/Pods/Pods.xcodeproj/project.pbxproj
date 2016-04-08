@@ -182,9 +182,9 @@
 				55ABBDEE64386456CB8BF887F0F007D1 /* SwiftCarousel+UIScrollViewDelegate.swift */,
 				4F4AAD595D04FFA8749189064AE72040 /* SwiftCarouselDelegate.swift */,
 				F260A5F95DAE428E872653884FA7B999 /* SwiftCarouselError.swift */,
+				143E830A1CB7E07D009E6FB2 /* SwiftCarouselItemsScroll.swift */,
 				FE18FB3FE6454239DD146148C453C64B /* SwiftCarouselResizeType.swift */,
 				FCD2072F5287B66023CD0D2F3A7D4C99 /* UIView+SwiftCarousel.swift */,
-				143E830A1CB7E07D009E6FB2 /* SwiftCarouselItemsScroll.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";

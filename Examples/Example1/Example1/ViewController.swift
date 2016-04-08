@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         carousel.resizeType = .VisibleItemsPerPage(3)
         carousel.defaultSelectedIndex = 3
         carousel.delegate = self
+        carousel.maxItemsPerScroll = .NoScroll
     }
     
     func labelForString(string: String) -> UILabel {
