@@ -29,11 +29,11 @@ public enum SwiftCarouselScroll: Equatable {
     /// .Default = .Freely
     case Default
     /// Set maximum number of items that user can scroll
-    /// If you pass 0, it will be set to .None by default.
+    /// If you pass 0, it will be set to .None.
     case Max(UInt)
-    /// Don't allow scroll
+    /// Don't allow scrolling.
     case None
-    /// Doesn't limit the scroll
+    /// Doesn't limit the scroll at all. You can scroll how far you want.
     case Freely
     /// TODO:
     // Set exact amount of items per scroll.

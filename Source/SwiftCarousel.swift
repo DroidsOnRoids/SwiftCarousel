@@ -45,7 +45,7 @@ public class SwiftCarousel: UIView {
     public weak var delegate: SwiftCarouselDelegate?
     /// Bool to set if by tap on item carousel should select it (scroll to it).
     public var selectByTapEnabled = true
-    /// Maximum item number to move on swipe (left or right)
+    /// Scrolling type of carousel. You can constraint scrolling through items.
     public var scrollType: SwiftCarouselScroll = .Default {
         didSet {
             if case .Max(let number) = scrollType where number <= 0 {
@@ -463,7 +463,7 @@ public class SwiftCarousel: UIView {
                 newIndex -= originalChoicesNumber
             }
             
-            return choices[newIndex]
+            view = choices[newIndex]
         }
         
         return view
