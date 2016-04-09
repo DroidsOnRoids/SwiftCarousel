@@ -49,13 +49,13 @@ public class SwiftCarousel: UIView {
     public var maxItemsPerScroll: SwiftCarouselScroll = .Default {
         didSet {
             if case .Max(let number) = maxItemsPerScroll where number <= 0 {
-                maxItemsPerScroll = .DragOnly
+                maxItemsPerScroll = .None
             }
             
             switch maxItemsPerScroll {
             case .None:
                 scrollView.scrollEnabled = false
-            case .Max, .DragOnly, .Freely, .Default:
+            case .Max, .Freely, .Default:
                 scrollView.scrollEnabled = true
             }
         }
@@ -396,10 +396,6 @@ public class SwiftCarousel: UIView {
      - returns: UIView that is the nearest to that point (or contains that point).
      */
     internal func nearestViewAtLocation(touchLocation: CGPoint) -> UIView {
-        if case .DragOnly = maxItemsPerScroll where currentRealSelectedIndex != nil {
-            return choices[currentRealSelectedIndex!]
-        }
-        
         if let newView = viewAtLocation(touchLocation) {
             return newView
         }
