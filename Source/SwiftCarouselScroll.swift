@@ -25,11 +25,11 @@ public enum SwiftCarouselScroll {
     case Default
     /// Set maximum number of items that user can scroll
     /// If you pass 0, it will be set to .OnlyDrag by default.
-    case ByNumber(UInt)
+    case Max(UInt)
     /// Don't allow scroll
-    case NoScroll
+    case None
     /// Doesn't limit the scroll
     case Freely
     /// It disables scrolling, but you can drag the view
-    case OnlyDrag
+    case DragOnly
 }
