@@ -46,13 +46,13 @@ public class SwiftCarousel: UIView {
     /// Bool to set if by tap on item carousel should select it (scroll to it).
     public var selectByTapEnabled = true
     /// Maximum item number to move on swipe (left or right)
-    public var maxItemsPerScroll: SwiftCarouselScroll = .Default {
+    public var scrollType: SwiftCarouselScroll = .Default {
         didSet {
-            if case .Max(let number) = maxItemsPerScroll where number <= 0 {
-                maxItemsPerScroll = .None
+            if case .Max(let number) = scrollType where number <= 0 {
+                scrollType = .None
             }
             
-            switch maxItemsPerScroll {
+            switch scrollType {
             case .None:
                 scrollView.scrollEnabled = false
             case .Max, .Freely, .Default:
@@ -396,50 +396,77 @@ public class SwiftCarousel: UIView {
      - returns: UIView that is the nearest to that point (or contains that point).
      */
     internal func nearestViewAtLocation(touchLocation: CGPoint) -> UIView {
+        var view: UIView!
         if let newView = viewAtLocation(touchLocation) {
-            return newView
-        }
-        
-        // Now check left and right margins to nearest views
-        var step: CGFloat = 1.0
-        
-        switch resizeType {
-        case .FloatWithSpacing(let spacing):
-            step = spacing
-        case .WithoutResizing(let spacing):
-            step = spacing
-        default:
-            break
-        }
-        
-        var targetX = touchLocation.x
-        
-        // Left
-        var leftView: UIView?
-        
-        repeat {
-            targetX -= step
-            leftView = viewAtLocation(CGPoint(x: targetX, y: touchLocation.y))
-        } while (leftView == nil)
-        
-        let leftMargin = touchLocation.x - CGRectGetMaxX(leftView!.frame)
-        
-        // Right
-        var rightView: UIView?
-        
-        repeat {
-            targetX += step
-            rightView = viewAtLocation(CGPoint(x: targetX, y: touchLocation.y))
-        } while (rightView == nil)
-        
-        let rightMargin = CGRectGetMinX(rightView!.frame) - touchLocation.x
-        
-        if rightMargin < leftMargin {
-            
-            return rightView!
+            view = newView
         } else {
-            return leftView!
+            // Now check left and right margins to nearest views
+            var step: CGFloat = 1.0
+            
+            switch resizeType {
+            case .FloatWithSpacing(let spacing):
+                step = spacing
+            case .WithoutResizing(let spacing):
+                step = spacing
+            default:
+                break
+            }
+            
+            var targetX = touchLocation.x
+            
+            // Left
+            var leftView: UIView?
+            
+            repeat {
+                targetX -= step
+                leftView = viewAtLocation(CGPoint(x: targetX, y: touchLocation.y))
+            } while (leftView == nil)
+            
+            let leftMargin = touchLocation.x - CGRectGetMaxX(leftView!.frame)
+            
+            // Right
+            var rightView: UIView?
+            
+            repeat {
+                targetX += step
+                rightView = viewAtLocation(CGPoint(x: targetX, y: touchLocation.y))
+            } while (rightView == nil)
+            
+            let rightMargin = CGRectGetMinX(rightView!.frame) - touchLocation.x
+            
+            if rightMargin < leftMargin {
+                
+                view = rightView!
+            } else {
+                view = leftView!
+            }
         }
+        
+        // Check if the view is in bounds of scrolling type
+        if case .Max(let maxItems) = scrollType,
+            let currentRealSelectedIndex = currentRealSelectedIndex,
+            var newIndex = choices.indexOf ({ $0 == view }) {
+            
+            if UInt(abs(newIndex - currentRealSelectedIndex)) > maxItems {
+                if newIndex > currentRealSelectedIndex {
+                    newIndex = currentRealSelectedIndex + Int(maxItems)
+                } else {
+                    newIndex = currentRealSelectedIndex - Int(maxItems)
+                }
+            }
+            
+            while newIndex < 0 {
+                newIndex += originalChoicesNumber
+            }
+            
+            while newIndex > choices.count {
+                newIndex -= originalChoicesNumber
+            }
+            
+            return choices[newIndex]
+        }
+        
+        return view
     }
     
     /**

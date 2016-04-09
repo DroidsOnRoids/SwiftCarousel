@@ -20,8 +20,13 @@
  * THE SOFTWARE.
  */
 
-public enum SwiftCarouselScroll {
-    /// For now .Default = .Freely
+public func ==(lhs: SwiftCarouselScroll, rhs: SwiftCarouselScroll) -> Bool {
+    return String(stringInterpolationSegment: lhs) == String(stringInterpolationSegment: rhs)
+}
+
+/// Type for defining if the carousel should be constrained when scrolling.
+public enum SwiftCarouselScroll: Equatable {
+    /// .Default = .Freely
     case Default
     /// Set maximum number of items that user can scroll
     /// If you pass 0, it will be set to .None by default.
