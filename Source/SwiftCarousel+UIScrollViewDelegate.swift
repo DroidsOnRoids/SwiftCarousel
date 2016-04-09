@@ -67,5 +67,8 @@ extension SwiftCarousel: UIScrollViewDelegate {
         let newTargetX = choiceView.center.x - scrollView.frame.width / 2.0
         currentVelocityX = newTargetX
         targetContentOffset.memory.x = newTargetX
+        if case .Max(let number) = scrollType {
+            scrollView.scrollEnabled = false
+        }
     }
 }
