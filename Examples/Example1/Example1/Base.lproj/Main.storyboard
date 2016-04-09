@@ -37,8 +37,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPP-k6-vuw">
-                                <rect key="frame" x="254" y="112" width="92" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPP-k6-vuw">
+                                <rect key="frame" x="254" y="111" width="92" height="30"/>
                                 <state key="normal" title="Tigers! 🐯😍"/>
                                 <connections>
                                     <action selector="selectTigers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="keC-ok-HLo"/>
