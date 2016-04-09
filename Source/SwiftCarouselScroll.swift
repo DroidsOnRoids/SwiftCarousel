@@ -32,4 +32,7 @@ public enum SwiftCarouselScroll {
     case Freely
     /// It disables scrolling, but you can drag the view
     case DragOnly
+    /// TODO:
+    // Set exact amount of items per scroll.
+    // case Amount(UInt)
 }
