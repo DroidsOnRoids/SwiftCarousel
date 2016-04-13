@@ -11,4 +11,5 @@ import Foundation
 // ErrorType enum for the potential errors thrown by SwiftCarousel
 enum SwiftCarouselError: ErrorType {
     case ViewAlreadyAdded // thrown when returning a view that has already been added to the carousel previously from the item factory closure
+    // TODO: Add BadNumberOfItems, when using selectItem or scrollType = .Max(UInt)
 }

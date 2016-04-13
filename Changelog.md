@@ -1,4 +1,5 @@
 # Next
+- Add `scrollType` property which constraints the scrolling of the carousel.
 
 # 0.6.1
 - Fix selector syntax for Swift 2.2
