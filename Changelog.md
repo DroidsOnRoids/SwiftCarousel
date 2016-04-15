@@ -1,5 +1,8 @@
 # Next
 
+# 0.7.1
+- Fixed bug with unused variable causing CI to fail (due to 0.7).
+
 # 0.7
 - Add `scrollType` property which constraints the scrolling of the carousel.
 
