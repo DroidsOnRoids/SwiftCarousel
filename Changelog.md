@@ -1,4 +1,6 @@
 # Next
+
+# 0.7
 - Add `scrollType` property which constraints the scrolling of the carousel.
 
 # 0.6.1
