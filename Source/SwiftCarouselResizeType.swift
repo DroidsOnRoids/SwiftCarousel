@@ -25,15 +25,15 @@ public enum SwiftCarouselResizeType {
     /// WithoutResizing is adding frames as they are.
     /// Parameter = spacing between UIViews.
     /// !!You need to pass correct frame sizes as items!!
-    case WithoutResizing(CGFloat)
+    case withoutResizing(CGFloat)
     
     /// VisibleItemsPerPage will try to fit the number of items you specify
     /// in the whole screen (will resize them of course).
     /// Parameter = number of items visible on screen.
-    case VisibleItemsPerPage(Int)
+    case visibleItemsPerPage(Int)
     
     /// FloatWithSpacing will use sizeToFit() on your views to correctly place images
     /// It is helpful for instance with UILabels (Example1 in Examples folder).
     /// Parameter = spacing between UIViews.
-    case FloatWithSpacing(CGFloat)
+    case floatWithSpacing(CGFloat)
 }

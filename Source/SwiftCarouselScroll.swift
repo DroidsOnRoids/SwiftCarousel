@@ -27,14 +27,14 @@ public func ==(lhs: SwiftCarouselScroll, rhs: SwiftCarouselScroll) -> Bool {
 /// Type for defining if the carousel should be constrained when scrolling.
 public enum SwiftCarouselScroll: Equatable {
     /// .Default = .Freely
-    case Default
+    case `default`
     /// Set maximum number of items that user can scroll
     /// If you pass 0, it will be set to .None.
-    case Max(UInt)
+    case max(UInt)
     /// Don't allow scrolling.
-    case None
+    case none
     /// Doesn't limit the scroll at all. You can scroll how far you want.
-    case Freely
+    case freely
     /// TODO:
     // Set exact amount of items per scroll.
     // case Amount(UInt)

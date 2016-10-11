@@ -21,26 +21,26 @@
 */
 
 extension SwiftCarousel: UIScrollViewDelegate {
-    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         didSelectItem()
     }
     
-    public func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         didSelectItem()
     }
     
-    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         delegate?.willBeginDragging?(withOffset: scrollView.contentOffset)
     }
     
-    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         delegate?.didEndDragging?(withOffset: scrollView.contentOffset)
     }
     
-    public func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         var velocity = velocity.x * 300.0
         
-        var targetX = CGRectGetWidth(scrollView.frame) / 2.0 + velocity
+        var targetX = scrollView.frame.width / 2.0 + velocity
         
         // When the target is being scrolled and we scroll again,
         // the position we need to take as base should be the destination
@@ -63,12 +63,12 @@ extension SwiftCarousel: UIScrollViewDelegate {
             targetX = scrollView.contentSize.width / 3.0 + velocity
         }
         
-        let choiceView = nearestViewAtLocation(CGPoint(x: targetX, y: CGRectGetMinY(scrollView.frame)))
+        let choiceView = nearestViewAtLocation(CGPoint(x: targetX, y: scrollView.frame.minY))
         let newTargetX = choiceView.center.x - scrollView.frame.width / 2.0
         currentVelocityX = newTargetX
-        targetContentOffset.memory.x = newTargetX
-        if case .Max(_) = scrollType {
-            scrollView.scrollEnabled = false
+        targetContentOffset.pointee.x = newTargetX
+        if case .max(_) = scrollType {
+            scrollView.isScrollEnabled = false
         }
     }
 }
