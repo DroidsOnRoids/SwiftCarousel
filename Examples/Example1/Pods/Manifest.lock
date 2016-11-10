@@ -1,5 +1,5 @@
 PODS:
-  - SwiftCarousel (0.6.1)
+  - SwiftCarousel (0.7.1)
 
 DEPENDENCIES:
   - SwiftCarousel (from `../../`)
@@ -9,6 +9,8 @@ EXTERNAL SOURCES:
     :path: ../../
 
 SPEC CHECKSUMS:
-  SwiftCarousel: cc70f232c2d684b64aaa3b8541af528746b24a3f
+  SwiftCarousel: f4df5aadd20729d7a4535426fc30fa12fab31509
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 7a668bca8d6161630d9cf4198dd8ed84a1d7fa35
+
+COCOAPODS: 1.0.1

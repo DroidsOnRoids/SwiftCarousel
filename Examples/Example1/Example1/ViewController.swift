@@ -22,18 +22,18 @@ class ViewController: UIViewController {
         items = ["Elephants", "Tigers", "Chickens", "Owls", "Rats", "Parrots", "Snakes"]
         itemsViews = items!.map { labelForString($0) }
         carousel.items = itemsViews!
-        carousel.resizeType = .VisibleItemsPerPage(3)
+        carousel.resizeType = .visibleItemsPerPage(3)
         carousel.defaultSelectedIndex = 3
         carousel.delegate = self
-        carousel.scrollType = .Default
+        carousel.scrollType = .default
     }
     
-    func labelForString(string: String) -> UILabel {
+    func labelForString(_ string: String) -> UILabel {
         let text = UILabel()
         text.text = string
-        text.textColor = .blackColor()
-        text.textAlignment = .Center
-        text.font = .systemFontOfSize(24.0)
+        text.textColor = .black
+        text.textAlignment = .center
+        text.font = .systemFont(ofSize: 24.0)
         text.numberOfLines = 0
         
         return text
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func selectTigers(sender: AnyObject) {
+    @IBAction func selectTigers(_ sender: AnyObject) {
         carousel.selectItem(1, animated: true)
     }
 }
@@ -52,9 +52,9 @@ class ViewController: UIViewController {
 
 extension ViewController: SwiftCarouselDelegate {
     
-    func didSelectItem(item item: UIView, index: Int, tapped: Bool) -> UIView? {
+    func didSelectItem(item: UIView, index: Int, tapped: Bool) -> UIView? {
         if let animal = item as? UILabel {
-            animal.textColor = UIColor.redColor()
+            animal.textColor = UIColor.red
             selectedTextLabel.text = "So you like \(animal.text!), eh?"
             
             return animal
@@ -63,9 +63,9 @@ extension ViewController: SwiftCarouselDelegate {
         return item
     }
     
-    func didDeselectItem(item item: UIView, index: Int) -> UIView? {
+    func didDeselectItem(item: UIView, index: Int) -> UIView? {
         if let animal = item as? UILabel {
-            animal.textColor = .blackColor()
+            animal.textColor = .black
             
             return animal
         }

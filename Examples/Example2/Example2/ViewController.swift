@@ -23,28 +23,28 @@ class ViewController: UIViewController {
         carouselView = SwiftCarousel(frame: carouselFrame)
         try! carouselView.itemsFactory(itemsCount: 5) { choice in
             let imageView = UIImageView(image: UIImage(named: "puppy\(choice+1)"))
-            imageView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 200.0, height: 200.0))
+            imageView.frame = CGRect(origin: .zero, size: CGSize(width: 200.0, height: 200.0))
             
             return imageView
         }
-        carouselView.resizeType = .WithoutResizing(10.0)
+        carouselView.resizeType = .withoutResizing(10.0)
         carouselView.delegate = self
         carouselView.defaultSelectedIndex = 2
         view.addSubview(carouselView)
         
-        let labelFrame = CGRect(x: view.center.x - 150.0, y: CGRectGetMinY(carouselFrame) - 40.0, width: 300.0, height: 20.0)
+        let labelFrame = CGRect(x: view.center.x - 150.0, y: carouselFrame.minY - 40.0, width: 300.0, height: 20.0)
         label = UILabel(frame: labelFrame)
         label.text = ""
-        label.textColor = .blackColor()
-        label.textAlignment = .Center
+        label.textColor = .black
+        label.textAlignment = .center
         view.addSubview(label)
         
         let titleFrame = CGRect(x: view.center.x - 150.0, y: 60.0, width: 300.0, height: 24.0)
         let title = UILabel(frame: titleFrame)
         title.text = "Puppy selector 🐶🐱"
-        title.font = .systemFontOfSize(24.0)
-        title.textColor = .blackColor()
-        title.textAlignment = .Center
+        title.font = .systemFont(ofSize: 24.0)
+        title.textColor = .black
+        title.textAlignment = .center
         
         view.addSubview(title)
     }
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: SwiftCarouselDelegate {
-    func didSelectItem(item item: UIView, index: Int) -> UIView? {
+    private func didSelectItem(item: UIView, index: Int) -> UIView? {
         label.text = index < 2 ? "🐶 number \(index+1) won! Woof woof 🐶" : "🐱 number \(index - 1) won! Meeeeeeow 🐱"
         
         return nil
