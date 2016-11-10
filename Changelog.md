@@ -1,5 +1,8 @@
 # Next
 
+# 0.8.0
+- Swift 3.0 support! 🎉
+
 # 0.7.1
 - Fixed bug with unused variable causing CI to fail (due to 0.7).
 

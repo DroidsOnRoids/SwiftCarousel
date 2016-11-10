@@ -39,11 +39,6 @@ class ViewController: UIViewController {
         return text
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func selectTigers(_ sender: AnyObject) {
         carousel.selectItem(1, animated: true)
     }
