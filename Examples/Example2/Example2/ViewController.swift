@@ -48,11 +48,6 @@ class ViewController: UIViewController {
         
         view.addSubview(title)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 extension ViewController: SwiftCarouselDelegate {
