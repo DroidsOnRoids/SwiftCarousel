@@ -1,14 +1,11 @@
 # SwiftCarousel
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 [![Version](https://img.shields.io/cocoapods/v/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/SwiftCarousel)
 [![Twitter](https://img.shields.io/badge/twitter-@thesunshinejr-blue.svg?style=flat)](https://twitter.com/thesunshinejr)
-
-<br />
-## Due to lack of time, I can't really maintain this project anymore. 😓  If anyone is up for doing so, please contact me.</span>
-<br />
 
 SwiftCarousel is a lightweight, written natively in Swift, circular UIScrollView.<br />
 So what is there more to that than just a circular scroll view? You can spin it like a real carousel!
